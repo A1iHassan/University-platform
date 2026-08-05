@@ -16,13 +16,15 @@ const HomePage = () => {
 	return (
     <main className="bg-slate-50 text-slate-800">
       {/* Sticky Navigation Bar */}
-      <nav className={`fixed w-full top-0 z-50 border-b transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-lg border-slate-200 shadow-sm' : 'bg-transparent border-transparent shadow-none backdrop-blur-none'}`}>
-        <ul className="mx-auto flex max-w-6xl items-center gap-1 px-4 py-0">
-          <li className={`me-auto rounded-lg px-5 py-2 text-sm font-medium cursor-pointer transition-all duration-500 ${scrolled ? 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 hover:border-slate-400' : 'border border-slate-300/50 bg-slate-900/30 text-white backdrop-blur-md hover:bg-slate-800/60 hover:border-slate-400/60'}`}>Quick Apply</li>
-          <li className={`flex items-center gap-2 rounded-lg px-5 py-2 text-sm font-medium cursor-pointer transition-all duration-500 ${scrolled ? 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 hover:border-slate-400' : 'border border-slate-300/50 bg-slate-900/30 text-white backdrop-blur-md hover:bg-slate-800/60 hover:border-slate-400/60'}`}>
+      <nav className={`px-3 flex justify-center fixed w-full top-0 z-50 border-b transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-lg border-slate-200 shadow-sm' : 'bg-transparent border-transparent shadow-none backdrop-blur-none'}`}>
+        <ul className=" flex max-w-6xl items-center gap-1 ">
+	  <li className='fixed right-0 flex gap-4 mr-3'>
+          <div className={`inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200  border-b-2 border-transparent hover:border-slate-800 ${scrolled ? 'hover:text-slate-900 border-b-2 text-slate-600' : 'text-white backdrop-blur-md hover:bg-slate-800/60 hover:border-slate-400/60'}`}>Quick Apply</div>
+          <div className={`flex items-center gap-2 px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200  border-b-2 border-transparent hover:border-slate-800 ${scrolled ? 'hover:text-slate-900 border-b-2 text-slate-600' : 'text-white backdrop-blur-md hover:bg-slate-800/60 hover:border-slate-400/60'}`}>
             <GlobeAltIcon className="h-4 w-4" />
             Language
-          </li>
+          </div>
+	  </li>
           <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#about" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">About</a></li>
           <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#admission" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">Admission</a></li>
           <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#academics" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">Academics</a></li>
@@ -34,7 +36,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className="relative h-screen w-full ">
         
-        <div className="relative h-full w-full">
+        <div className="relative h-full w-full grid grid-cols-2 grid-rows-2">
           <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
             <source src="/hero.mp4" type="video/mp4" />
           </video>
@@ -42,15 +44,15 @@ const HomePage = () => {
           {/* Dark overlay on the video */}
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/40 to-slate-900/30" />
           
-          <div className="relative z-10 flex h-full flex-col items-center justify-center gap-6 px-6 text-center">
-            <h1 className="text-5xl font-extrabold leading-tight text-white drop-shadow-lg md:text-6xl lg:text-7xl">University's Full Official Name</h1>
-            <p className="max-w-2xl text-lg font-light text-slate-200 md:text-xl">Catch phrase about the university</p>
+          <div className="relative z-10 col-start-1 row-start-1 flex flex-col justify-end items-start gap-4 p-12 pt-20">
+            <h1 className="text-4xl font-extrabold leading-tight text-white drop-shadow-lg md:text-5xl lg:text-6xl">University's Full Official Name</h1>
+            <p className="max-w-xl text-base font-light text-slate-200 md:text-lg">Catch phrase about the university</p>
             
             {/* Scroll indicator */}
-            <ChevronDownIcon className="mt-4 h-8 w-8 animate-bounce text-slate-300" />
+            <ChevronDownIcon className="mt-2 h-7 w-7 animate-bounce text-slate-300" />
           </div>
           
-          <div className="absolute bottom-12 left-0 right-0 z-10 flex flex-wrap items-center justify-center gap-4 px-6">
+          <div className="relative z-10 col-start-2 row-start-2 flex flex-wrap items-end justify-end gap-4 p-12">
             <button className="rounded-xl border-2 border-slate-300 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">See admission requirements</button>
             <button className="rounded-xl border-2 border-slate-300 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">See our faculties</button>
           </div>
