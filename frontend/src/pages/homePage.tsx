@@ -61,26 +61,42 @@ const HomePage = () => {
 
 
       {/* Latest News Section */}
-      <section className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-5">
-        <article className="group col-span-3 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg">
+      <section className="mx-auto grid h-screen w-full gap-8 px-6 py-16 md:grid-cols-5">
+        <article className="relative col-span-3 overflow-hidden shadow-xl/40 bg-white">
           {/* Latest published news report */}
-          <div className="overflow-hidden">
-            <img src="latest-news-placeholder.jpg" alt="Latest News" className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div className="overflow-hidden h-full relative z-10">
+            <img src="/Latest.jpeg" alt="Latest News" className="object-cover w-full h-full transition-transform duration-500" />
+            {/* Dark overlay on the video */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/40 to-slate-900/30" />
           </div>
-          <div className="p-6">
-            <h2 className="mb-3 text-2xl font-bold text-slate-900">Latest News Report</h2>
-            <p className="text-sm leading-relaxed text-slate-500">News summary content...</p>
+          <div className="p-6 z-100 absolute bottom-0">
+            <h2 className="mb-3 text-5xl font-bold text-slate-100">Latest News Report</h2>
+            <p className="text-xl leading-relaxed text-slate-200">News summary content...</p>
           </div>
         </article>
         
         <aside className="col-span-2 flex flex-col gap-4">
-          <article className="group flex-1 overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow duration-300 hover:shadow-lg">
-            {/* Previously published news report */}
-            <h3 className="text-lg font-semibold text-slate-800 group-hover:text-slate-950 transition-colors">Previous News Article 1</h3>
+          <article className="relative group flex-1 overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow duration-300 hover:shadow-lg">
+          <div className="overflow-hidden relative z-10">
+            <img src="/Latest.jpeg" alt="Latest News" className="object-cover w-full h-full transition-transform duration-500" />
+            {/* Dark overlay on the video */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/40 to-slate-900/30" />
+          </div>
+          <div className="p-6 z-100 absolute bottom-0">
+            <h2 className="mb-3 text-5xl font-bold text-slate-100">Latest News Report</h2>
+            <p className="text-xl leading-relaxed text-slate-200">News summary content...</p>
+          </div>
           </article>
-          <article className="group flex-1 overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow duration-300 hover:shadow-lg">
-            {/* Previously published news report */}
-            <h3 className="text-lg font-semibold text-slate-800 group-hover:text-slate-950 transition-colors">Previous News Article 2</h3>
+          <article className="relative group flex-1 overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow duration-300 hover:shadow-lg">
+          <div className="overflow-hidden relative z-10">
+            <img src="/Latest.jpeg" alt="Latest News" className="object-cover w-full h-full transition-transform duration-500" />
+            {/* Dark overlay on the video */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/40 to-slate-900/30" />
+          </div>
+          <div className="p-6 z-100 absolute bottom-0">
+            <h2 className="mb-3 text-5xl font-bold text-slate-100">Latest News Report</h2>
+            <p className="text-xl leading-relaxed text-slate-200">News summary content...</p>
+          </div>
           </article>
           
           <button className="mt-auto w-full rounded-xl border-2 border-slate-300 bg-slate-50 px-6 py-3 text-sm font-semibold text-slate-700 transition-all duration-300 hover:border-slate-500 hover:bg-slate-800 hover:text-white cursor-pointer">See more of our news</button>
