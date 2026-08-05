@@ -1,17 +1,38 @@
+import { useState, useEffect } from 'react'
 import { ChevronDownIcon, GlobeAltIcon, AcademicCapIcon, UserGroupIcon, BookOpenIcon, BeakerIcon, PhoneIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline'
 
 const HomePage = () => {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > window.innerHeight / 2)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
 	return (
     <main className="bg-slate-50 text-slate-800">
-      {/* Hero Section */}
-      <section className="relative h-screen w-full overflow-hidden">
-        <header className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-8 py-5">
-          <button className="rounded-lg border border-slate-300/50 bg-slate-900/30 px-5 py-2 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:bg-slate-800/60 hover:border-slate-400/60 cursor-pointer">Quick menu</button>
-          <button className="flex items-center gap-2 rounded-lg border border-slate-300/50 bg-slate-900/30 px-5 py-2 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:bg-slate-800/60 hover:border-slate-400/60 cursor-pointer">
+      {/* Sticky Navigation Bar */}
+      <nav className={`fixed w-full top-0 z-50 border-b transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-lg border-slate-200 shadow-sm' : 'bg-transparent border-transparent shadow-none backdrop-blur-none'}`}>
+        <ul className="mx-auto flex max-w-6xl items-center gap-1 px-4 py-0">
+          <li className={`me-auto rounded-lg px-5 py-2 text-sm font-medium cursor-pointer transition-all duration-500 ${scrolled ? 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 hover:border-slate-400' : 'border border-slate-300/50 bg-slate-900/30 text-white backdrop-blur-md hover:bg-slate-800/60 hover:border-slate-400/60'}`}>Quick Apply</li>
+          <li className={`flex items-center gap-2 rounded-lg px-5 py-2 text-sm font-medium cursor-pointer transition-all duration-500 ${scrolled ? 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 hover:border-slate-400' : 'border border-slate-300/50 bg-slate-900/30 text-white backdrop-blur-md hover:bg-slate-800/60 hover:border-slate-400/60'}`}>
             <GlobeAltIcon className="h-4 w-4" />
             Language
-          </button>
-        </header>
+          </li>
+          <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#about" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">About</a></li>
+          <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#admission" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">Admission</a></li>
+          <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#academics" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">Academics</a></li>
+          <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#publications" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">Publications</a></li>
+          <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#media" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">Media</a></li>
+          <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#contact" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">Contact</a></li>
+        </ul>
+      </nav>
+      {/* Hero Section */}
+      <section className="relative h-screen w-full ">
         
         <div className="relative h-full w-full">
           <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
@@ -36,17 +57,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Sticky Navigation Bar */}
-      <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 shadow-sm backdrop-blur-lg">
-        <ul className="mx-auto flex max-w-6xl items-center justify-center gap-1 px-4 py-0">
-          <li><a href="#about" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">About</a></li>
-          <li><a href="#admission" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">Admission</a></li>
-          <li><a href="#academics" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">Academics</a></li>
-          <li><a href="#publications" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">Publications</a></li>
-          <li><a href="#media" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">Media</a></li>
-          <li><a href="#contact" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">Contact</a></li>
-        </ul>
-      </nav>
 
       {/* Latest News Section */}
       <section className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-5">
