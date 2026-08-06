@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ChevronDownIcon, ChevronLeftIcon, GlobeAltIcon, AcademicCapIcon, UserGroupIcon, BookOpenIcon, BeakerIcon, PhoneIcon, EnvelopeIcon, MapPinIcon, ArrowLongLeftIcon } from '@heroicons/react/24/outline'
+import { ChevronDownIcon, ChevronLeftIcon, GlobeAltIcon, PhoneIcon, EnvelopeIcon, MapPinIcon, ArrowLongLeftIcon } from '@heroicons/react/24/outline'
 
 const MOCK_LOCATIONS = {
   main: 'https://www.openstreetmap.org/export/embed.html?bbox=-74.0152%2C40.7105%2C-74.0084%2C40.7145&layer=mapnik',
