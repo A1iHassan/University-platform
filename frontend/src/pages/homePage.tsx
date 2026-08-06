@@ -1,8 +1,16 @@
 import { useState, useEffect } from 'react'
 import { ChevronDownIcon, ChevronLeftIcon, GlobeAltIcon, AcademicCapIcon, UserGroupIcon, BookOpenIcon, BeakerIcon, PhoneIcon, EnvelopeIcon, MapPinIcon, ArrowLongLeftIcon } from '@heroicons/react/24/outline'
 
+const MOCK_LOCATIONS = {
+  main: 'https://www.openstreetmap.org/export/embed.html?bbox=-74.0152%2C40.7105%2C-74.0084%2C40.7145&layer=mapnik',
+  campus1: 'https://www.openstreetmap.org/export/embed.html?bbox=-0.1337%2C51.5074%2C-0.1235%2C51.5126&layer=mapnik',
+  campus2: 'https://www.openstreetmap.org/export/embed.html?bbox=2.3414%2C48.8533%2C2.3556%2C48.8614&layer=mapnik',
+  campus3: 'https://www.openstreetmap.org/export/embed.html?bbox=139.7562%2C35.6796%2C139.7735%2C35.6881&layer=mapnik',
+};
+
 const HomePage = () => {
   const [scrolled, setScrolled] = useState(false)
+  const [activeMapUrl, setActiveMapUrl] = useState(MOCK_LOCATIONS.main)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,7 +80,7 @@ const HomePage = () => {
           <div className="p-6 z-100 absolute bottom-0 w-full flex justify-between items-end">
             <div className="text-right">
               <h2 className="mb-3 text-5xl font-bold text-slate-100">Latest News Report</h2>
-              <p className="text-xl leading-relaxed text-slate-200">...News summary content</p>
+              <p className="text-xl leading-relaxed text-slate-200">News summary content</p>
             </div>
             <div className="overflow-hidden mb-2">
               <div className="flex items-center gap-2 text-slate-100 font-semibold text-lg translate-x-[100%] transition-transform duration-500 group-hover:translate-x-0">
@@ -101,7 +109,7 @@ const HomePage = () => {
              </div>
              <div className="text-right">
                <h2 className="mb-2 text-3xl font-bold text-slate-100">Latest News Report</h2>
-               <p className="text-lg leading-relaxed text-slate-200">...News summary content</p>
+               <p className="text-lg leading-relaxed text-slate-200">News summary content</p>
              </div>
            </div>
 	    </div>
@@ -123,7 +131,7 @@ const HomePage = () => {
              </div>
              <div className="text-right">
                <h2 className="mb-2 text-3xl font-bold text-slate-100">Latest News Report</h2>
-               <p className="text-lg leading-relaxed text-slate-200">...News summary content</p>
+               <p className="text-lg leading-relaxed text-slate-200">News summary content</p>
              </div>
            </div>
 	    </div>
@@ -134,7 +142,7 @@ const HomePage = () => {
               <ChevronLeftIcon className="h-5 w-5 text-slate-700 flex-shrink-0" />
             </div>
             <span>See more of our news</span>
-            <div className="absolute bottom-0 right-0 w-full flex flex-col gap-[2px] mt-5">
+            <div className="absolute bottom-0 right-0 w-full flex flex-col gap-[2px]">
               <div className="h-[2px] w-full bg-slate-700 transition-all duration-300"></div>
               <div className="h-[2px] w-2/3 bg-slate-700 transition-all duration-300"></div>
             </div>
@@ -143,78 +151,66 @@ const HomePage = () => {
       </section>
 
       {/* Staff Page / Section */}
-      <section className="bg-slate-100 px-6 py-16">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 md:grid-cols-4">
-          {/* Top row cards */}
-          <article className="group flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-            <AcademicCapIcon className="h-10 w-10 text-slate-400 group-hover:text-slate-700 transition-colors" />
-            <span className="text-sm font-semibold text-slate-700">Staff Card 1</span>
-          </article>
-          <article className="group flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-            <UserGroupIcon className="h-10 w-10 text-slate-400 group-hover:text-slate-700 transition-colors" />
-            <span className="text-sm font-semibold text-slate-700">Staff Card 2</span>
-          </article>
-          <article className="group flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-            <BookOpenIcon className="h-10 w-10 text-slate-400 group-hover:text-slate-700 transition-colors" />
-            <span className="text-sm font-semibold text-slate-700">Staff Card 3</span>
-          </article>
-          <article className="group flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-            <BeakerIcon className="h-10 w-10 text-slate-400 group-hover:text-slate-700 transition-colors" />
-            <span className="text-sm font-semibold text-slate-700">Staff Card 4</span>
-          </article>
-        </div>
-        
-        <div className="mx-auto mt-10 max-w-6xl grid gap-8 md:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-            {/* Text lines */}
-            <h3 className="mb-4 text-xl font-bold text-slate-900">Department Info</h3>
-            <p className="mb-2 text-sm leading-relaxed text-slate-500">Text line 1</p>
-            <p className="mb-2 text-sm leading-relaxed text-slate-500">Text line 2</p>
-            <p className="text-sm leading-relaxed text-slate-500">Text line 3</p>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-6">
-            {/* Bottom row cards */}
-            <article className="group flex flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <span className="text-sm font-semibold text-slate-700">Staff Card 5</span>
-            </article>
-            <article className="group flex flex-col items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <span className="text-sm font-semibold text-slate-700">Staff Card 6</span>
-            </article>
-          </div>
-        </div>
+      <section className="bg-slate-100 px-6 py-16 h-svh flex flex-wrap gap-4">
+        <div className='h-1/2 w-1/5'>
+	  <img src='/person.png' />
+	  <p>
+	    <span></span>
+	    <span></span>
+	  </p>
+	</div>
       </section>
 
       {/* Location Section */}
-      <section className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-2">
-        <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-          {/* Map snippet for location */}
-          <iframe title="University Map Location" src="map-source-url" className="h-80 w-full border-0 md:h-full" />
-        </div>
-        
-        <aside className="flex flex-col gap-6">
-          <address className="not-italic rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+      <section className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-2 h-svh">
+        <aside className="flex flex-col gap-6 justify-center">
+          <div 
+            onClick={() => setActiveMapUrl(MOCK_LOCATIONS.main)}
+            className={`cursor-pointer rounded-2xl border bg-white p-8 shadow-sm transition-all duration-200 hover:border-slate-400 ${activeMapUrl === MOCK_LOCATIONS.main ? 'border-slate-800 ring-1 ring-slate-800' : 'border-slate-200'}`}
+          >
             {/* University location information */}
-            <div className="mb-4 flex items-center gap-3">
-              <MapPinIcon className="h-6 w-6 text-slate-500" />
-              <h3 className="text-xl font-bold text-slate-900">Main Campus Location</h3>
-            </div>
-            <p className="mb-1 text-sm text-slate-500">Address Line 1</p>
-            <p className="mb-1 text-sm text-slate-500">Address Line 2</p>
-            <p className="mb-1 text-sm text-slate-500">Address Line 3</p>
-            <p className="text-sm text-slate-500">Address Line 4</p>
-          </address>
+            <address className="not-italic">
+              <div className="mb-4 flex items-center gap-3">
+                <MapPinIcon className="h-6 w-6 text-slate-500" />
+                <h3 className="text-xl font-bold text-slate-900">Main Campus Location</h3>
+              </div>
+              <p className="mb-1 text-sm text-slate-500">Address Line 1</p>
+              <p className="mb-1 text-sm text-slate-500">Address Line 2</p>
+              <p className="mb-1 text-sm text-slate-500">Address Line 3</p>
+              <p className="text-sm text-slate-500">Address Line 4</p>
+            </address>
+          </div>
           
           <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
             {/* Other campuses locations */}
             <h4 className="mb-4 text-lg font-bold text-slate-800">Other Campuses</h4>
             <div className="flex flex-col gap-3">
-              <button className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-medium text-slate-700 text-start transition-all duration-200 hover:border-slate-400 hover:bg-slate-100 cursor-pointer">Campus Location 1</button>
-              <button className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-medium text-slate-700 text-start transition-all duration-200 hover:border-slate-400 hover:bg-slate-100 cursor-pointer">Campus Location 2</button>
-              <button className="rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-medium text-slate-700 text-start transition-all duration-200 hover:border-slate-400 hover:bg-slate-100 cursor-pointer">Campus Location 3</button>
+              <button 
+                onClick={() => setActiveMapUrl(MOCK_LOCATIONS.campus1)}
+                className={`rounded-xl border px-5 py-3 text-sm font-medium text-slate-700 text-start transition-all duration-200 hover:border-slate-400 hover:bg-slate-100 cursor-pointer ${activeMapUrl === MOCK_LOCATIONS.campus1 ? 'border-slate-800 bg-slate-100 ring-1 ring-slate-800' : 'border-slate-200 bg-slate-50'}`}
+              >
+                Campus Location 1
+              </button>
+              <button 
+                onClick={() => setActiveMapUrl(MOCK_LOCATIONS.campus2)}
+                className={`rounded-xl border px-5 py-3 text-sm font-medium text-slate-700 text-start transition-all duration-200 hover:border-slate-400 hover:bg-slate-100 cursor-pointer ${activeMapUrl === MOCK_LOCATIONS.campus2 ? 'border-slate-800 bg-slate-100 ring-1 ring-slate-800' : 'border-slate-200 bg-slate-50'}`}
+              >
+                Campus Location 2
+              </button>
+              <button 
+                onClick={() => setActiveMapUrl(MOCK_LOCATIONS.campus3)}
+                className={`rounded-xl border px-5 py-3 text-sm font-medium text-slate-700 text-start transition-all duration-200 hover:border-slate-400 hover:bg-slate-100 cursor-pointer ${activeMapUrl === MOCK_LOCATIONS.campus3 ? 'border-slate-800 bg-slate-100 ring-1 ring-slate-800' : 'border-slate-200 bg-slate-50'}`}
+              >
+                Campus Location 3
+              </button>
             </div>
           </div>
         </aside>
+
+        <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm h-full min-h-[400px]">
+          {/* Map snippet for location */}
+          <iframe title="University Map Location" src={activeMapUrl} className="h-full w-full border-0" />
+        </div>
       </section>
 
       {/* Footer */}
