@@ -42,7 +42,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DbModule = exports.DRIZZLE = void 0;
 const common_1 = require("@nestjs/common");
 const db_service_1 = require("./db.service");
-const db_controller_1 = require("./db.controller");
 const schema = __importStar(require("./schema"));
 const node_postgres_1 = require("drizzle-orm/node-postgres");
 const pg_1 = require("pg");
@@ -54,7 +53,6 @@ exports.DbModule = DbModule;
 exports.DbModule = DbModule = __decorate([
     (0, common_1.Global)(),
     (0, common_1.Module)({
-        controllers: [db_controller_1.DbController],
         providers: [
             {
                 provide: exports.DRIZZLE,

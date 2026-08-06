@@ -20,7 +20,7 @@ export declare const users: import("drizzle-orm/pg-core").PgTableWithColumns<{
             identity: undefined;
             generated: undefined;
         }, {}, {}>;
-        uniNumber: import("drizzle-orm/pg-core").PgColumn<{
+        uni_number: import("drizzle-orm/pg-core").PgColumn<{
             name: "uni_number";
             tableName: "users";
             dataType: "string";

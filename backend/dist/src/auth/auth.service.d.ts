@@ -1,9 +1,35 @@
-import { CreateAuthDto } from './dto/create-auth.dto';
-import { UpdateAuthDto } from './dto/update-auth.dto';
+import { JwtService } from '@nestjs/jwt';
+import { type Db } from "../db/db.module";
+import { loginDto } from './dto/login.dto';
+import { RefreshDto } from './dto/refresh.dto';
 export declare class AuthService {
-    create(createAuthDto: CreateAuthDto): string;
-    findAll(): string;
-    findOne(id: number): string;
-    update(id: number, updateAuthDto: UpdateAuthDto): string;
-    remove(id: number): string;
+    private readonly db;
+    private readonly jwt;
+    private readonly logger;
+    constructor(db: Db, jwt: JwtService);
+    login(dto: loginDto): Promise<{
+        user: {
+            id: string;
+            uni_number: string;
+            role: "student" | "admin";
+        };
+        access_token: string;
+        refresh_token: string;
+    }>;
+    refresh(dto: RefreshDto): Promise<{
+        user: {
+            id: string;
+            uni_number: string;
+            role: "student" | "admin";
+        };
+        access_token: string;
+        refresh_token: string;
+    }>;
+    me(userId: string): Promise<{
+        id: string;
+        uni_number: string;
+        role: "student" | "admin";
+    }>;
+    private issueToken;
+    private toPublicUser;
 }

@@ -1,26 +1,103 @@
-import { Injectable } from '@nestjs/common';
-import { CreateAuthDto } from './dto/create-auth.dto';
-import { UpdateAuthDto } from './dto/update-auth.dto';
+import {
+  Inject,
+  Injectable,
+  Logger,
+  UnauthorizedException,
+} from '@nestjs/common';
+import { StringValue } from 'ms';
+import { JwtService } from '@nestjs/jwt';
+import { type Db, DRIZZLE } from 'src/db/db.module';
+import { loginDto } from './dto/login.dto';
+import { User, users } from 'src/db/schema';
+import { eq } from 'drizzle-orm';
+import * as bcrypt from 'bcryptjs';
+import { JwtPayload } from './jwt-payload';
+import { config } from 'config';
+import { RefreshDto } from './dto/refresh.dto';
 
 @Injectable()
 export class AuthService {
-  create(createAuthDto: CreateAuthDto) {
-    return 'This action adds a new auth';
+  private readonly logger = new Logger(AuthService.name);
+
+  constructor(
+    @Inject(DRIZZLE) private readonly db: Db,
+    private readonly jwt: JwtService,
+  ) {}
+
+  async login(dto: loginDto) {
+    const [user] = await this.db
+      .select()
+      .from(users)
+      .where(eq(users.uni_number, dto.uni_number))
+      .limit(1);
+
+    if (!user || !(await bcrypt.compare(dto.password, user.password))) {
+      this.logger.warn(`Failed login attempt for ${dto.uni_number}`);
+      throw new UnauthorizedException('invalid uni_number or password');
+    }
+    this.logger.log(`User ${user.id} (${user.uni_number}) logged in`);
+
+    const tokens = await this.issueToken(user);
+
+    return { ...tokens, user: this.toPublicUser(user) };
   }
 
-  findAll() {
-    return `This action returns all auth`;
+  async refresh(dto: RefreshDto) {
+    let payload: JwtPayload;
+    try {
+      payload = await this.jwt.verifyAsync<JwtPayload>(dto.refreshToken, {
+        secret: config.jwtRefreshSecret,
+      });
+    } catch {
+      throw new UnauthorizedException('invalid refresh token');
+    }
+
+    const [user] = await this.db
+      .select()
+      .from(users)
+      .where(eq(users.id, payload.sub));
+    if (!user) {
+      throw new UnauthorizedException('invalid refresh token');
+    }
+    this.logger.log(`Token refreshed for user ${user.id}`);
+    const tokens = await this.issueToken(user);
+
+    return { ...tokens, user: this.toPublicUser(user) };
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
+  async me(userId: string) {
+    const [user] = await this.db
+      .select()
+      .from(users)
+      .where(eq(users.id, userId))
+      .limit(1);
+    console.log(user);
+
+    if (!user) throw new UnauthorizedException('no matches');
+
+    return this.toPublicUser(user);
   }
 
-  update(id: number, updateAuthDto: UpdateAuthDto) {
-    return `This action updates a #${id} auth`;
+  private async issueToken(user: User) {
+    const payload: JwtPayload = {
+      sub: user.id,
+      uni_number: user.uni_number,
+      role: user.role,
+    };
+    const [access_token, refresh_token] = await Promise.all([
+      this.jwt.signAsync(payload, {
+        secret: config.jwtAccessSecret,
+        expiresIn: config.jwtAccessTtl as StringValue,
+      }),
+      this.jwt.signAsync(payload, {
+        secret: config.jwtRefreshSecret,
+        expiresIn: config.jwtRefreshTtl as StringValue,
+      }),
+    ]);
+    return { access_token, refresh_token };
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} auth`;
+  private toPublicUser(user: User) {
+    return { id: user.id, uni_number: user.uni_number, role: user.role };
   }
 }
