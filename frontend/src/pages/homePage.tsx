@@ -61,8 +61,8 @@ const HomePage = () => {
           </div>
           
           <div className="relative z-10 col-start-2 row-start-2 flex flex-wrap items-end justify-end gap-4 p-12">
-            <button className="rounded-xl border-2 border-slate-300 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">See admission requirements</button>
-            <button className="rounded-xl border-2 border-slate-300 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">See our faculties</button>
+            <button className="bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">See admission requirements</button>
+            <button className="bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">See our faculties</button>
           </div>
         </div>
       </section>
@@ -151,13 +151,58 @@ const HomePage = () => {
       </section>
 
       {/* Staff Page / Section */}
-      <section className="bg-slate-100 px-6 py-16 h-svh flex flex-wrap gap-4">
+      <section className="bg-slate-100 px-6 py-16 h-svh flex flex-wrap gap-10 justify-center items-center">
         <div className='h-1/2 w-1/5'>
 	  <img src='/person.png' />
-	  <p>
-	    <span></span>
-	    <span></span>
+	  <p className='flex flex-col items-center mt-2'>
+	    <span>Staff member name</span>
+	    <span>Job title</span>
 	  </p>
+	</div>
+        <div className='h-1/2 w-1/5'>
+	  <img src='/person.png' />
+	  <p className='block flex flex-col items-center mt-2'>
+	    <span>Staff member name</span>
+	    <span>Job title</span>
+	  </p>
+	</div>
+        <div className='h-1/2 w-1/5'>
+	  <img src='/person.png' />
+	  <p className='flex flex-col items-center mt-2'>
+	    <span>Staff member name</span>
+	    <span>Job title</span>
+	  </p>
+	</div>
+        <div className='h-1/2 w-1/5'>
+	  <img src='/person.png' />
+	  <p className='flex flex-col items-center mt-2'>
+	    <span>Staff member name</span>
+	    <span>Job title</span>
+	  </p>
+	</div>
+        <div className='h-1/2 w-1/5'>
+	  <img src='/person.png' />
+	  <p className='flex flex-col items-center mt-2'>
+	    <span>Staff member name</span>
+	    <span>Job title</span>
+	  </p>
+	</div>
+        <div className='h-1/2 w-1/5'>
+	  <img src='/person.png' />
+	  <p className='flex flex-col items-center mt-2'>
+	    <span>Staff member name</span>
+	    <span>Job title</span>
+	  </p>
+	</div>
+	<div className='group relative mr-35 mt-12 flex items-center text-lg font-semibold text-slate-700 cursor-pointer pb-1'>
+            <div className="flex items-center transition-all duration-300 w-0 overflow-hidden group-hover:w-6 opacity-0 group-hover:opacity-100 group-hover:mr-1">
+              <ChevronLeftIcon className="h-5 w-5 text-slate-700 flex-shrink-0" />
+            </div>
+	<span className=''>Meet our staff</span>
+            <div className="absolute bottom-0 right-0 w-full flex flex-col gap-[2px]">
+              <div className="h-[2px] w-full bg-slate-700 transition-all duration-300"></div>
+              <div className="h-[2px] w-2/3 bg-slate-700 transition-all duration-300"></div>
+            </div>
 	</div>
       </section>
 
