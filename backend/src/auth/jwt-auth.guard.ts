@@ -13,11 +13,10 @@ export class JwtAuthGuard implements CanActivate {
   constructor(private readonly jwt: JwtService) {}
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest<Request>();
-    const authorization = request.headers.authorization;
-    const [type, token] = authorization?.split(' ') ?? [];
+    const token = request.cookies?.['access_token'] as string;
 
-    if (type !== 'Bearer' || !token)
-      throw new UnauthorizedException('Missing bearer token');
+    if (!token)
+      throw new UnauthorizedException('Missing access token in cookies');
 
     try {
       (request as Request & { user: JwtPayload }).user =

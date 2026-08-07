@@ -1,5 +1,4 @@
 import { Global, Module } from '@nestjs/common';
-import { DbService } from './db.service';
 import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import * as schema from 'src/db/schema';
 import { drizzle } from 'drizzle-orm/node-postgres';
@@ -17,7 +16,6 @@ export type Db = NodePgDatabase<typeof schema>;
       useFactory: () =>
         drizzle(new Pool({ connectionString: config.databaseUrl }), { schema }),
     },
-    DbService,
   ],
   exports: [DRIZZLE],
 })

@@ -37,7 +37,6 @@ export class AuthService {
     this.logger.log(`User ${user.id} (${user.uni_number}) logged in`);
 
     const tokens = await this.issueToken(user);
-
     return { ...tokens, user: this.toPublicUser(user) };
   }
 
@@ -70,7 +69,6 @@ export class AuthService {
       .from(users)
       .where(eq(users.id, userId))
       .limit(1);
-    console.log(user);
 
     if (!user) throw new UnauthorizedException('no matches');
 
