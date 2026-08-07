@@ -76,10 +76,10 @@ let AuthService = AuthService_1 = class AuthService {
         const tokens = await this.issueToken(user);
         return { ...tokens, user: this.toPublicUser(user) };
     }
-    async refresh(dto) {
+    async refresh(refreshToken) {
         let payload;
         try {
-            payload = await this.jwt.verifyAsync(dto.refreshToken, {
+            payload = await this.jwt.verifyAsync(refreshToken, {
                 secret: config_1.config.jwtRefreshSecret,
             });
         }

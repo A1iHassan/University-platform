@@ -1,7 +1,6 @@
 import { JwtService } from '@nestjs/jwt';
 import { type Db } from "../db/db.module";
 import { loginDto } from './dto/login.dto';
-import { RefreshDto } from './dto/refresh.dto';
 export declare class AuthService {
     private readonly db;
     private readonly jwt;
@@ -16,7 +15,7 @@ export declare class AuthService {
         access_token: string;
         refresh_token: string;
     }>;
-    refresh(dto: RefreshDto): Promise<{
+    refresh(refreshToken: string): Promise<{
         user: {
             id: string;
             uni_number: string;

@@ -1,7 +1,6 @@
 import { Request } from 'express';
 import { AuthService } from './auth.service';
 import { loginDto } from './dto/login.dto';
-import { RefreshDto } from './dto/refresh.dto';
 import { JwtPayload } from './jwt-payload';
 export declare class AuthController {
     private readonly authService;
@@ -15,7 +14,7 @@ export declare class AuthController {
         access_token: string;
         refresh_token: string;
     }>;
-    refresh(dto: RefreshDto): Promise<{
+    refresh(auth: string): Promise<{
         user: {
             id: string;
             uni_number: string;

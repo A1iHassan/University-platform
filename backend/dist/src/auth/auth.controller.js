@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
 const auth_service_1 = require("./auth.service");
 const login_dto_1 = require("./dto/login.dto");
-const refresh_dto_1 = require("./dto/refresh.dto");
 const jwt_auth_guard_1 = require("./jwt-auth.guard");
 const common_1 = require("@nestjs/common");
 let AuthController = class AuthController {
@@ -26,8 +25,12 @@ let AuthController = class AuthController {
     login(dto) {
         return this.authService.login(dto);
     }
-    refresh(dto) {
-        return this.authService.refresh(dto);
+    refresh(auth) {
+        const [scheme, refreshToken] = auth?.split(' ') ?? [];
+        if (scheme !== 'Bearer' || !refreshToken) {
+            throw new common_1.UnauthorizedException('no refresh token passed in the headers');
+        }
+        return this.authService.refresh(refreshToken);
     }
     me(req) {
         return this.authService.me(req.user.sub);
@@ -42,10 +45,10 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "login", null);
 __decorate([
-    (0, common_1.Post)('refresh'),
-    __param(0, (0, common_1.Body)()),
+    (0, common_1.Get)('refresh'),
+    __param(0, (0, common_1.Headers)('Authorization')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [refresh_dto_1.RefreshDto]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "refresh", null);
 __decorate([

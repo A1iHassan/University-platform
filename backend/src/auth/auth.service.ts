@@ -13,7 +13,6 @@ import { eq } from 'drizzle-orm';
 import * as bcrypt from 'bcryptjs';
 import { JwtPayload } from './jwt-payload';
 import { config } from 'config';
-import { RefreshDto } from './dto/refresh.dto';
 
 @Injectable()
 export class AuthService {
@@ -42,10 +41,10 @@ export class AuthService {
     return { ...tokens, user: this.toPublicUser(user) };
   }
 
-  async refresh(dto: RefreshDto) {
+  async refresh(refreshToken: string) {
     let payload: JwtPayload;
     try {
-      payload = await this.jwt.verifyAsync<JwtPayload>(dto.refreshToken, {
+      payload = await this.jwt.verifyAsync<JwtPayload>(refreshToken, {
         secret: config.jwtRefreshSecret,
       });
     } catch {
