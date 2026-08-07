@@ -25,11 +25,11 @@ const HomePage = () => {
           </div>
 	  </li>
           <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#about" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">من نحن</a></li>
-          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#admission" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">بوابة التقديم</a></li>
-          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#academics" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">الأكاديميات</a></li>
+          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#admission" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">القبول و التقديم</a></li>
+          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#academics" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">البرامج</a></li>
           <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#publications" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">المنشورات الأكاديمية</a></li>
           <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#media" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">حساباتنا</a></li>
-          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#contact" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">التواصل</a></li>
+          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#contact" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">المراكز</a></li>
 	  <li className='fixed left-0 top-0 flex items-center gap-3'>
 	    <span className='font-bold text-slate-50 text-xl'>الجامعة التكنلوجية</span>
 	    <img src='/logo.svg' width={36} height={36} className='ml-3 mt-1' />
@@ -52,7 +52,7 @@ const HomePage = () => {
 	      <img src='/logo.png' />
 	      <span className='text-8xl'>الجامعة التكنلوجية</span>
 	    </h1>
-            <p className="max-w-xl text-base text-slate-200 md:text-lg pt-5">أن تكون الجامعة التكنولوجية مؤسسة أكاديمية معرفية تقنية وبحثية رائدة تنشط في خدمة المجتمع لتقديم نموذج متميز محلي وإقليمي وعالمي وفق لمعايير الجودة</p>
+            <p className="max-w-xl text-base text-slate-200 md:text-lg pt-5">الجامعة التكنولوجية مؤسسة أكاديمية معرفية تقنية وبحثية رائدة تنشط في خدمة المجتمع لتقديم نموذج متميز محلي وإقليمي وعالمي وفق لمعايير الجودة</p>
             
             {/* Scroll indicator */}
           </div>
@@ -64,6 +64,46 @@ const HomePage = () => {
         </div>
       </section>
 
+      <section className='w-full h-[60svh] flex items-center justify-center gap-10 px-5 cursor-pointer'>
+        <article className='hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-10 shadow-xl/20 justify-between p-3 h-1/2'>
+	  <h3 className='text-2xl font-bold'>رسالتنا</h3>
+	  <p className='text-xl'>
+	    تسعى الجاعة إلى تقديم تعليم متميز و بحوث علمية تقنية مبتكرة لتلبية تغيرات العصر المعرفية و البحثية و المحتمعية
+	  </p>
+	</article>
+        <article className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-10 shadow-xl/20 justify-between p-3 h-1/2'>
+	  <h3 className='text-2xl font-bold'>الأهداف</h3>
+	  <p className=''>
+	    إضافه لما ورد في قانون الجامعة لسنة 2023م، تسعى هذه المؤسسة إلى تحقيق الأهداف التالية:
+	      <ul className='list-disc list-inside space-y-2'>
+	        <li>- تمكين الطلاب بمختلف مستوياتهم من بلوغ الأهداف المهنية عالية الجودة</li>
+		<li>- تحفيز الطلاب على  ...</li>
+	      </ul>
+	    <span className='flex gap-2 items-center group-hover:gap-5 transition-all duration-300'>اقرأ المزيد
+	      <ChevronLeftIcon width={16} height={16}/>
+	    </span>
+	  </p>
+	</article>
+        <article className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-7 shadow-xl/20 justify-between p-3 h-1/2'>
+	  <h3 className='text-2xl font-bold'>كلمة رئيس الجامعة</h3>
+	  <p className=''>
+	    بسم الله الرحمن الرحيم و به نستعين الحمد لله الذي بنعمته تتم الصالحات وبفضله ومنه وكرمه تقضى الحاجات وتتنزل الرحمات ، إلي ابنائي الطلاب و
+	    الطالبات وإلي كافة منسوبي الجامعة التكنولوجية بمختلف فئاتهم ومسمياتهم الجامعة التكنولوجية، لها تاريخ غني ...
+	    <span className='flex gap-2 items-center group-hover:gap-5 transition-all duration-300'>اقرأ المزيد
+	      <ChevronLeftIcon width={16} height={16}/>
+	    </span>
+	  </p>
+	</article>
+        <article className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-7 shadow-xl/20 justify-between p-3 h-1/2'>
+	  <h3 className='text-2xl font-bold'>العلاقات العامة</h3>
+	  <p className=''>
+	    نشأت إدارة العلاقات العامة الاعلام عقب صدور قرار السيد مدير الجامعة في العام 2024م، وفق أهداف مرسومة لتكون المرآة التي تعكس المناشط المختلفة للجامعة ، ومنذ ذلك التاريخ مثلت حلقت وصل بين الجامعة والمؤسسات المختلفة علي ...
+	    <span className='flex gap-2 items-center group-hover:gap-5 transition-all duration-300'>اقرأ المزيد
+	      <ChevronLeftIcon width={16} height={16}/>
+	    </span>
+	  </p>
+	</article>
+      </section>
 
       {/* Latest News Section */}
       <section className="mx-auto grid h-screen w-full gap-8 px-6 py-32 md:grid-cols-5">
@@ -92,7 +132,7 @@ const HomePage = () => {
           <article className="group relative flex-1 overflow-hidden bg-white p-5 shadow-xl/40 cursor-pointer max-h-1/3 w-5/6">
 	    {/* Background Image & Overlay (Removed from document flow) */}
 	    <img
-		src="/Latest.jpeg" 
+		src="/website.jpeg" 
 		alt="Article Background"
 		className="absolute inset-0 h-full w-full object-cover z-0 transition-transform duration-500 group-hover:scale-105" />
   	    <div className="absolute inset-0 bg-slate-900/70 z-0 transition-opacity duration-500 group-hover:bg-slate-900/80" />
@@ -104,9 +144,9 @@ const HomePage = () => {
                  <span>اقرأ المزيد</span>
                </div>
              </div>
-             <div className="text-right">
-               <h2 className="mb-2 text-3xl font-bold text-slate-100">مقال سابق</h2>
-               <p className="text-lg leading-relaxed text-slate-200">نبذة سريعة عن المقال</p>
+             <div className="text-left">
+               <h2 className="mb-2 text-3xl font-bold text-slate-100">إطلاق موقعنا الرسمي</h2>
+               <p className="text-lg leading-relaxed text-slate-200 font-light">تم رسميا إطلاق الصفحة الإلكترونية الرسمية الخاصة بالجامعة ...</p>
              </div>
            </div>
 	    </div>
