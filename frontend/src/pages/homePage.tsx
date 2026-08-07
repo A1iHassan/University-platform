@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { ChevronLeftIcon, PhoneIcon, EnvelopeIcon, MapPinIcon, ArrowLongLeftIcon } from '@heroicons/react/24/outline'
+import { ChevronLeftIcon, MapPinIcon, ArrowLongLeftIcon } from '@heroicons/react/24/outline'
 import NavBar from '../components/navBar';
 import Footer from '../components/footer';
+import { Link } from 'react-router';
 
 const MOCK_LOCATIONS = {
   main: 'https://www.openstreetmap.org/export/embed.html?bbox=-74.0152%2C40.7105%2C-74.0084%2C40.7145&layer=mapnik',
@@ -53,7 +54,7 @@ const HomePage = () => {
 	    تسعى الجاعة إلى تقديم تعليم متميز و بحوث علمية تقنية مبتكرة لتلبية تغيرات العصر المعرفية و البحثية و المحتمعية
 	  </p>
 	</article>
-        <article className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-10 shadow-xl/20 justify-between p-3 h-1/2'>
+        <Link to={{pathname: "/goals"}} className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-10 shadow-xl/20 justify-between p-3 h-1/2'>
 	  <h3 className='text-2xl font-bold'>الأهداف</h3>
 	  <p className=''>
 	    إضافه لما ورد في قانون الجامعة لسنة 2023م، تسعى هذه المؤسسة إلى تحقيق الأهداف التالية:
@@ -65,7 +66,7 @@ const HomePage = () => {
 	      <ChevronLeftIcon width={16} height={16}/>
 	    </span>
 	  </p>
-	</article>
+	</Link>
         <article className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-7 shadow-xl/20 justify-between p-3 h-1/2'>
 	  <h3 className='text-2xl font-bold'>كلمة رئيس الجامعة</h3>
 	  <p className=''>
