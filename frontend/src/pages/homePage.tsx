@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { ChevronDownIcon, ChevronLeftIcon, GlobeAltIcon, PhoneIcon, EnvelopeIcon, MapPinIcon, ArrowLongLeftIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react'
+import { ChevronLeftIcon, GlobeAltIcon, PhoneIcon, EnvelopeIcon, MapPinIcon, ArrowLongLeftIcon } from '@heroicons/react/24/outline'
 
 const MOCK_LOCATIONS = {
   main: 'https://www.openstreetmap.org/export/embed.html?bbox=-74.0152%2C40.7105%2C-74.0084%2C40.7145&layer=mapnik',
@@ -9,36 +9,31 @@ const MOCK_LOCATIONS = {
 };
 
 const HomePage = () => {
-  const [scrolled, setScrolled] = useState(false)
   const [activeMapUrl, setActiveMapUrl] = useState(MOCK_LOCATIONS.main)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > window.innerHeight / 2)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
 	return (
     <main className="bg-slate-50 text-slate-800">
       {/* Sticky Navigation Bar */}
-      <nav className={`px-3 flex justify-center fixed w-full top-0 z-50 border-b transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-lg border-slate-200 shadow-sm' : 'bg-transparent border-transparent shadow-none backdrop-blur-none'}`}>
+      <nav className={`px-3 flex justify-center fixed w-full top-0 z-50 transition-all duration-500 bg-[#d67528ff]`}>
         <ul className=" flex max-w-6xl items-center gap-1 ">
 	  <li className='fixed right-0 flex gap-4 mr-3'>
-          <div className={`inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200  border-b-2 border-transparent hover:border-slate-800 ${scrolled ? 'hover:text-slate-900 border-b-2 text-slate-600' : 'text-white backdrop-blur-md hover:bg-slate-800/60 hover:border-slate-400/60'}`}>سجل الآن</div>
-          <div className={`flex items-center gap-2 px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200  border-b-2 border-transparent hover:border-slate-800 ${scrolled ? 'hover:text-slate-900 border-b-2 text-slate-600' : 'text-white backdrop-blur-md hover:bg-slate-800/60 hover:border-slate-400/60'}`}>
+          <div className={`inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-all duration-200  border-b-2 border-transparent hover:border-slate-50 hover:font-bold border-b-2`}>سجل الآن</div>
+          <div className={`flex items-center gap-2 px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200  border-b-2 border-transparent hover:border-slate-50 hover:font-bold border-b-2`}>
             <GlobeAltIcon className="h-4 w-4" />
             اللغة
           </div>
 	  </li>
-          <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#about" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">من نحن</a></li>
-          <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#admission" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">بوابة التقديم</a></li>
-          <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#academics" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">الأكاديميات</a></li>
-          <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#publications" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">المنشورات الأكاديمية</a></li>
-          <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#media" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">حساباتنا</a></li>
-          <li className={`transition-all duration-500 ${scrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}><a href="#contact" className="inline-block px-5 py-4 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">التواصل</a></li>
+          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#about" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">من نحن</a></li>
+          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#admission" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">بوابة التقديم</a></li>
+          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#academics" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">الأكاديميات</a></li>
+          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#publications" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">المنشورات الأكاديمية</a></li>
+          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#media" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">حساباتنا</a></li>
+          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#contact" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">التواصل</a></li>
+	  <li className='fixed left-0 top-0 flex items-center gap-3'>
+	    <span className='font-bold text-slate-50 text-xl'>الجامعة التكنلوجية</span>
+	    <img src='/logo.svg' width={36} height={36} className='ml-3 mt-1' />
+	  </li>
         </ul>
       </nav>
       {/* Hero Section */}
@@ -52,12 +47,14 @@ const HomePage = () => {
           {/* Dark overlay on the video */}
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/40 to-slate-900/30" />
           
-          <div className="relative z-10 col-start-1 row-start-1 flex flex-col justify-end items-start gap-4 p-12 pt-20">
-            <h1 className="text-4xl font-extrabold leading-tight text-white drop-shadow-lg md:text-5xl lg:text-6xl">الاسم الرسمي الكامل للجامعة</h1>
-            <p className="max-w-xl text-base font-light text-slate-200 md:text-lg">عبارة تعبر عن نشاط أو أهداف الجامعة ، أو عبارة تسويقية و إعلامية لشد الانتباه</p>
+          <div className="relative z-10 col-start-1 row-start-1 row-span-2 flex flex-col items-center justify-center gap-4 p-12 pt-20">
+            <h1 className="flex gap-3 items-center font-extrabold leading-tight text-white drop-shadow-lg md:text-5xl lg:text-6xl">
+	      <img src='/logo.png' />
+	      <span className='text-8xl'>الجامعة التكنلوجية</span>
+	    </h1>
+            <p className="max-w-xl text-base text-slate-200 md:text-lg pt-5">أن تكون الجامعة التكنولوجية مؤسسة أكاديمية معرفية تقنية وبحثية رائدة تنشط في خدمة المجتمع لتقديم نموذج متميز محلي وإقليمي وعالمي وفق لمعايير الجودة</p>
             
             {/* Scroll indicator */}
-            <ChevronDownIcon className="mt-2 h-7 w-7 animate-bounce text-slate-300" />
           </div>
           
           <div className="relative z-10 col-start-2 row-start-2 flex flex-wrap items-end justify-end gap-4 p-12">
