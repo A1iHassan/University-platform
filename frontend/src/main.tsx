@@ -5,6 +5,7 @@ import './index.css'
 import LoginPage from './pages/loginPage'
 import { loginAction } from './actions/loginAction'
 import HomePage from './pages/homePage'
+import AboutUs from './pages/about'
 
 const router = createBrowserRouter([
 	{
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
 		path: "/login",
 		element: <LoginPage />,
 		action: loginAction,
+	},
+	{
+		path: "/about",
+		element: <AboutUs />,
 	},
 ])
 

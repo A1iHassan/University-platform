@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router';
 import { ChevronLeftIcon, GlobeAltIcon, PhoneIcon, EnvelopeIcon, MapPinIcon, ArrowLongLeftIcon } from '@heroicons/react/24/outline'
 
 const MOCK_LOCATIONS = {
@@ -24,7 +25,7 @@ const HomePage = () => {
             اللغة
           </div>
 	  </li>
-          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#about" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">من نحن</a></li>
+          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><Link to={{pathname: "/about"}} className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">من نحن</Link></li>
           <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#admission" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">القبول و التقديم</a></li>
           <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#academics" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">البرامج</a></li>
           <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#publications" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">المنشورات الأكاديمية</a></li>
@@ -64,7 +65,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className='w-full h-[60svh] flex items-center justify-center gap-10 px-5 cursor-pointer'>
+      {/* cards */}
+      <section className='w-full h-[60svh] flex items-center justify-center gap-10 px-5 cursor-pointer mt-20'>
         <article className='hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-10 shadow-xl/20 justify-between p-3 h-1/2'>
 	  <h3 className='text-2xl font-bold'>رسالتنا</h3>
 	  <p className='text-xl'>
@@ -106,7 +108,8 @@ const HomePage = () => {
       </section>
 
       {/* Latest News Section */}
-      <section className="mx-auto grid h-screen w-full gap-8 px-6 py-32 md:grid-cols-5">
+      <h2 className='text-4xl text-center mt-20'>آخر الأخبار</h2>
+      <section className="mx-auto grid h-screen w-full gap-8 px-6 pb-32 pt-10 md:grid-cols-5">
         <article className="group relative col-span-3 overflow-hidden shadow-xl/40 bg-white mr-5 cursor-pointer">
           {/* Latest published news report */}
           <div className="overflow-hidden h-full relative z-10">
