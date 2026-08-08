@@ -1,5 +1,8 @@
 import { useState } from 'react'
-import { ChevronLeftIcon, GlobeAltIcon, PhoneIcon, EnvelopeIcon, MapPinIcon, ArrowLongLeftIcon } from '@heroicons/react/24/outline'
+import { ChevronLeftIcon, MapPinIcon, ArrowLongLeftIcon } from '@heroicons/react/24/outline'
+import NavBar from '../components/navBar';
+import Footer from '../components/footer';
+import { Link } from 'react-router';
 
 const MOCK_LOCATIONS = {
   main: 'https://www.openstreetmap.org/export/embed.html?bbox=-74.0152%2C40.7105%2C-74.0084%2C40.7145&layer=mapnik',
@@ -14,28 +17,7 @@ const HomePage = () => {
 
 	return (
     <main className="bg-slate-50 text-slate-800">
-      {/* Sticky Navigation Bar */}
-      <nav className={`px-3 flex justify-center fixed w-full top-0 z-50 transition-all duration-500 bg-[#d67528ff]`}>
-        <ul className=" flex max-w-6xl items-center gap-1 ">
-	  <li className='fixed right-0 flex gap-4 mr-3'>
-          <div className={`inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-all duration-200  border-b-2 border-transparent hover:border-slate-50 hover:font-bold border-b-2`}>سجل الآن</div>
-          <div className={`flex items-center gap-2 px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200  border-b-2 border-transparent hover:border-slate-50 hover:font-bold border-b-2`}>
-            <GlobeAltIcon className="h-4 w-4" />
-            اللغة
-          </div>
-	  </li>
-          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#about" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">من نحن</a></li>
-          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#admission" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">القبول و التقديم</a></li>
-          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#academics" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">البرامج</a></li>
-          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#publications" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">المنشورات الأكاديمية</a></li>
-          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#media" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">حساباتنا</a></li>
-          <li className={`transition-all duration-500 opacity-100 translate-y-0`}><a href="#contact" className="inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200 hover:text-slate-900 border-b-2 border-transparent hover:border-slate-800">المراكز</a></li>
-	  <li className='fixed left-0 top-0 flex items-center gap-3'>
-	    <span className='font-bold text-slate-50 text-xl'>الجامعة التكنلوجية</span>
-	    <img src='/logo.svg' width={36} height={36} className='ml-3 mt-1' />
-	  </li>
-        </ul>
-      </nav>
+      <NavBar />
       {/* Hero Section */}
       <section className="relative h-screen w-full ">
         
@@ -64,14 +46,15 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className='w-full h-[60svh] flex items-center justify-center gap-10 px-5 cursor-pointer'>
+      {/* cards */}
+      <section className='w-full h-[60svh] flex items-center justify-center gap-10 px-5 cursor-pointer mt-20'>
         <article className='hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-10 shadow-xl/20 justify-between p-3 h-1/2'>
 	  <h3 className='text-2xl font-bold'>رسالتنا</h3>
 	  <p className='text-xl'>
 	    تسعى الجاعة إلى تقديم تعليم متميز و بحوث علمية تقنية مبتكرة لتلبية تغيرات العصر المعرفية و البحثية و المحتمعية
 	  </p>
 	</article>
-        <article className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-10 shadow-xl/20 justify-between p-3 h-1/2'>
+        <Link to={{pathname: "/goals"}} className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-10 shadow-xl/20 justify-between p-3 h-1/2'>
 	  <h3 className='text-2xl font-bold'>الأهداف</h3>
 	  <p className=''>
 	    إضافه لما ورد في قانون الجامعة لسنة 2023م، تسعى هذه المؤسسة إلى تحقيق الأهداف التالية:
@@ -83,7 +66,7 @@ const HomePage = () => {
 	      <ChevronLeftIcon width={16} height={16}/>
 	    </span>
 	  </p>
-	</article>
+	</Link>
         <article className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-7 shadow-xl/20 justify-between p-3 h-1/2'>
 	  <h3 className='text-2xl font-bold'>كلمة رئيس الجامعة</h3>
 	  <p className=''>
@@ -106,7 +89,8 @@ const HomePage = () => {
       </section>
 
       {/* Latest News Section */}
-      <section className="mx-auto grid h-screen w-full gap-8 px-6 py-32 md:grid-cols-5">
+      <h2 className='text-4xl text-center mt-20'>آخر الأخبار</h2>
+      <section className="mx-auto grid h-screen w-full gap-8 px-6 pb-32 pt-10 md:grid-cols-5">
         <article className="group relative col-span-3 overflow-hidden shadow-xl/40 bg-white mr-5 cursor-pointer">
           {/* Latest published news report */}
           <div className="overflow-hidden h-full relative z-10">
@@ -301,47 +285,7 @@ const HomePage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-200 bg-slate-900 px-6 py-14 text-slate-300">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-start md:justify-between">
-          <div>
-            <h2 className="text-2xl font-bold text-white">اسم الجامعة</h2>
-            <p className="mt-2 text-sm text-slate-400">شعار الجامعة أو عبارة تمثل الجامعة</p>
-          </div>
-          
-          <ul className="flex items-center gap-4">
-            {/* Media accounts */}
-            <li><a href="#social1" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-slate-800">حساب</a></li>
-            <li><a href="#social2" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-slate-800">حساب</a></li>
-            <li><a href="#social3" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-slate-800">حساب</a></li>
-            <li><a href="#social4" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-slate-800">حساب</a></li>
-          </ul>
-        </div>
-        
-        <div className="mx-auto mt-10 grid max-w-6xl gap-8 border-t border-slate-800 pt-10 md:grid-cols-3">
-          {/* Quick links - Column 1 */}
-          <ul className="flex flex-col gap-3">
-            <li><a href="#link1" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">رابط سريع 1</a></li>
-            <li><a href="#link2" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">رابط سريع 2</a></li>
-            <li><a href="#link3" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">رابط سريع 3</a></li>
-          </ul>
-          
-          {/* Quick links - Column 2 */}
-          <ul className="flex flex-col gap-3">
-            <li><a href="#link4" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">رابط سريع 4</a></li>
-            <li><a href="#link5" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">رابط سريع 5</a></li>
-            <li><a href="#link6" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">رابط سريع 6</a></li>
-          </ul>
-        
-          <div>
-            {/* Contacts */}
-            <h3 className="mb-4 text-lg font-semibold text-white">تواصل معنا على</h3>
-            <address className="not-italic">
-              <p className="mb-2 flex items-center gap-2 text-sm text-slate-400"><PhoneIcon className="h-4 w-4" />هاتف: +1 123 456 7890</p>
-              <p className="flex items-center gap-2 text-sm text-slate-400"><EnvelopeIcon className="h-4 w-4" />بريد إلكتروني: contact@university.edu</p>
-            </address>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
