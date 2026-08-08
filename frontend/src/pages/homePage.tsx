@@ -11,10 +11,16 @@ const MOCK_LOCATIONS = {
   campus3: 'https://www.openstreetmap.org/export/embed.html?bbox=139.7562%2C35.6796%2C139.7735%2C35.6881&layer=mapnik',
 };
 
+const facultiesData = [
+  { id: 1, name: 'كلية الهندسة', description: 'تفاصيل ومعلومات كلية الهندسة...' },
+  { id: 2, name: 'كلية علوم الحاسوب', description: 'تفاصيل ومعلومات كلية علوم الحاسوب...' },
+  { id: 3, name: 'كلية إدارة الأعمال', description: 'تفاصيل ومعلومات كلية إدارة الأعمال...' },
+  { id: 4, name: 'كلية التصميم والفنون', description: 'تفاصيل ومعلومات كلية التصميم والفنون...' },
+];
+
 const HomePage = () => {
   const [activeMapUrl, setActiveMapUrl] = useState(MOCK_LOCATIONS.main)
-
-
+  const [activeFaculty, setActiveFaculty] = useState(facultiesData[0]);
 	return (
     <main className="bg-slate-50 text-slate-800">
       <NavBar />
@@ -98,7 +104,7 @@ const HomePage = () => {
             {/* Dark overlay on the video */}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/40 to-slate-900/30 transition-opacity duration-500 group-hover:bg-slate-900/50 transition-color duration-200" />
           </div>
-          <div className="p-6 z-100 absolute bottom-0 w-full flex justify-between items-end">
+          <div className="p-6 z-20 absolute bottom-0 w-full flex justify-between items-end">
             <div className="text-right">
               <h2 className="mb-3 text-5xl font-bold text-slate-100">فتح باب السجيل لخريف 2026</h2>
               <p className="text-xl leading-relaxed text-slate-200">بعد الإطلاق الرسمي لوالبتنا الإلكترونية ، تم بحمد الله تعالى فتح ...</p>
@@ -170,6 +176,50 @@ const HomePage = () => {
           </button>
         </aside>
       </section>
+
+      {/* faculties section */}
+    <section className="h-[90svh] w-full flex flex-row p-12 gap-8 bg-slate-50" dir="rtl">
+      
+      {/* Right Component: Table */}
+      <div className="w-1/2 flex items-center">
+        <table className="w-full text-right border-collapse">
+          <tbody>
+            {facultiesData.map((faculty) => (
+              <tr 
+                key={faculty.id} 
+                onMouseEnter={() => setActiveFaculty(faculty)}
+                className={`border-b border-slate-300 cursor-pointer transition-colors duration-200 ${
+                  activeFaculty.id === faculty.id ? 'bg-slate-200' : 'hover:bg-slate-100'
+                }`}
+              >
+                <td className="p-6 text-2xl font-semibold text-slate-800">
+                  {faculty.name}
+                </td>
+              </tr>
+            ))}
+            {/* 5th Row: Static CTA */}
+            <tr className="cursor-pointer hover:bg-slate-100 transition-colors duration-200">
+              <td className="p-6 text-2xl font-bold text-orange-600">
+                تعرف على باقي الكليات
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {/* Left Component: Dynamic Details Div */}
+      <div className="w-1/2 flex items-center justify-center p-8">
+        <div className="w-full h-full max-h-[60%] bg-white rounded-2xl shadow-lg border border-slate-200 p-10 flex flex-col gap-4 transition-all duration-300">
+          <h2 className="text-4xl font-bold text-slate-900 border-b border-slate-200 pb-4">
+            {activeFaculty.name}
+          </h2>
+          <p className="text-xl text-slate-600 leading-relaxed">
+            {activeFaculty.description}
+          </p>
+        </div>
+      </div>
+
+    </section>
 
       {/* Staff Page / Section */}
       <section className="bg-slate-100 px-6 py-16 h-svh flex flex-wrap gap-10 justify-center items-center">

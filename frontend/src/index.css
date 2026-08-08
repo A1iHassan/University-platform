@@ -15,7 +15,7 @@ ul {
 }
 
 .marquee-content {
-  animation: marquee 20s linear infinite;
+  animation: marquee 35s linear infinite;
 }
 
 @keyframes marquee {
@@ -23,6 +23,6 @@ ul {
     transform: translateX(35vw);
   }
   100% {
-    transform: translateX(-35vw);
+    transform: translateX(-110vw);
   }
 }
