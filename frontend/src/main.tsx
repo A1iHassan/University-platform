@@ -7,6 +7,7 @@ import { loginAction } from './actions/loginAction'
 import HomePage from './pages/homePage'
 import AboutUs from './pages/about'
 import Goals from './pages/goals'
+import Admission from './pages/admissions'
 
 const router = createBrowserRouter([
 	{
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
 	{
 		path: "/goals",
 		element: <Goals />
+	},
+	{
+		path: "/admissions",
+		element: <Admission />,
 	},
 ])
 

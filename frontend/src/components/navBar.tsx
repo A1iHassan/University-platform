@@ -6,8 +6,8 @@ const NavBar = () => {
      <nav className={`px-3 flex justify-center transition-all duration-500 bg-[#d67528ff]`}>
         <ul className=" flex max-w-6xl items-center gap-1 ">
 	  <li className='fixed right-0 flex gap-4 mr-3'>
-          <div className={`inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-all duration-200  border-b-2 border-transparent hover:border-slate-50 hover:font-bold border-b-2`}>سجل الآن</div>
-          <div className={`flex items-center gap-2 px-5 py-4 text-sm font-semibold text-slate-50 transition-colors duration-200  border-b-2 border-transparent hover:border-slate-50 hover:font-bold border-b-2`}>
+          <Link to={{pathname: "/admissions"}} className={`cursor-pointer inline-block px-5 py-4 text-sm font-semibold text-slate-50 transition-all duration-200  border-b-2 border-transparent hover:border-slate-50 hover:font-bold border-b-2`}>سجل الآن</Link>
+          <div className={`flex items-center gap-2 px-5 py-4 text-sm cursor-pointer font-semibold text-slate-50 transition-colors duration-200  border-b-2 border-transparent hover:border-slate-50 hover:font-bold border-b-2`}>
             <GlobeAltIcon className="h-4 w-4" />
             اللغة
           </div>
