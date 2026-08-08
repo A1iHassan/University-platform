@@ -8,6 +8,7 @@ import HomePage from './pages/homePage'
 import AboutUs from './pages/about'
 import Goals from './pages/goals'
 import Admission from './pages/admissions'
+import Pages from './pages/programs'
 
 const router = createBrowserRouter([
 	{
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
 	{
 		path: "/admissions",
 		element: <Admission />,
+	},
+	{
+		path: "/programs",
+		element: <Pages />
 	},
 ])
 
