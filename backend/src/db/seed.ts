@@ -11,18 +11,18 @@ async function main() {
   const db = drizzle(new Pool({ connectionString: config.databaseUrl }), {
     schema,
   });
-  const uni_number = process.argv[2] ?? '12345678';
+  const username = process.argv[2] ?? '12345678';
   const password = process.argv[3] ?? 'password123';
   const hashed = await bcrypt.hash(password, 10);
   const [user] = await db
     .insert(schema.users)
-    .values({ uni_number, password: hashed })
+    .values({ username, password: hashed })
     .onConflictDoNothing()
     .returning();
   logger.log(
     user
-      ? `Seeded user ${user.uni_number} (${user.role})`
-      : `User ${uni_number} already exists`,
+      ? `Seeded user ${user.username} (${user.role})`
+      : `User ${username} already exists`,
   );
   process.exit(0);
 }

@@ -27,14 +27,14 @@ export class AuthService {
     const [user] = await this.db
       .select()
       .from(users)
-      .where(eq(users.uni_number, dto.uni_number))
+      .where(eq(users.username, dto.username))
       .limit(1);
 
     if (!user || !(await bcrypt.compare(dto.password, user.password))) {
-      this.logger.warn(`Failed login attempt for ${dto.uni_number}`);
-      throw new UnauthorizedException('invalid uni_number or password');
+      this.logger.warn(`Failed login attempt for ${dto.username}`);
+      throw new UnauthorizedException('invalid username or password');
     }
-    this.logger.log(`User ${user.id} (${user.uni_number}) logged in`);
+    this.logger.log(`User ${user.id} (${user.username}) logged in`);
 
     const tokens = await this.issueToken(user);
     return { ...tokens, user: this.toPublicUser(user) };
@@ -78,7 +78,7 @@ export class AuthService {
   private async issueToken(user: User) {
     const payload: JwtPayload = {
       sub: user.id,
-      uni_number: user.uni_number,
+      username: user.username,
       role: user.role,
     };
     const [access_token, refresh_token] = await Promise.all([
@@ -95,6 +95,6 @@ export class AuthService {
   }
 
   private toPublicUser(user: User) {
-    return { id: user.id, uni_number: user.uni_number, role: user.role };
+    return { id: user.id, username: user.username, role: user.role };
   }
 }

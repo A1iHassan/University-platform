@@ -1,5 +1,5 @@
 export interface JwtPayload {
   sub: string;
-  uni_number: string;
+  username: string;
   role: 'student' | 'instructor' | 'admin';
 }
