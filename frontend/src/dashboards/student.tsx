@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ClipboardDocumentCheckIcon, CalendarDaysIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router';
 
 const Students = () => {
   const [activeTab, setActiveTab] = useState<'results' | 'schedule'>('results');
@@ -19,7 +20,10 @@ const Students = () => {
     <div dir="rtl" className="flex h-screen bg-slate-50 text-slate-900 font-sans">
       {/* Sidebar Navigation */}
       <aside className="w-64 bg-white shadow-lg border-l border-slate-200 flex flex-col">
-        <div className="p-6 border-b border-slate-200">
+        <div className="p-6 border-b border-slate-200 flex items-center">
+	  <Link to={{pathname: "/"}}>
+	    <img src='/logo.png' width={70} height={70}/>
+	  </Link>
           <h2 className="text-xl font-bold text-slate-800">بوابة الطالب</h2>
         </div>
         <nav className="flex-1 p-4 space-y-2">
@@ -27,7 +31,7 @@ const Students = () => {
             onClick={() => setActiveTab('results')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
               activeTab === 'results'
-                ? 'bg-blue-50 text-blue-700 font-semibold'
+                ? 'bg-[#d67549]/20 text-slate-700 font-semibold'
                 : 'text-slate-600 hover:bg-slate-100'
             }`}
           >
@@ -39,7 +43,7 @@ const Students = () => {
             onClick={() => setActiveTab('schedule')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
               activeTab === 'schedule'
-                ? 'bg-blue-50 text-blue-700 font-semibold'
+                ? 'bg-[#d67549]/20 text-slate-700 font-semibold'
                 : 'text-slate-600 hover:bg-slate-100'
             }`}
           >
@@ -124,7 +128,7 @@ const ScheduleContent = () => {
             </div>
             <div className="text-left">
               <span className="block font-medium text-slate-700">{session.day}</span>
-              <span className="block text-sm text-blue-600 font-semibold mt-1 dir-ltr">{session.time}</span>
+              <span className="block text-sm text-orange-700/70 font-semibold mt-1 dir-ltr">{session.time}</span>
             </div>
           </div>
         ))}
