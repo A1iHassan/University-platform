@@ -11,6 +11,7 @@ import Admission from './pages/admissions'
 import Pages from './pages/programs'
 import Requirements from './pages/admissionRequirements'
 import President from './pages/presidentWord'
+import Students from './dashboards/student'
 
 const router = createBrowserRouter([
 	{
@@ -20,7 +21,6 @@ const router = createBrowserRouter([
 	{
 		path: "/login",
 		element: <LoginPage />,
-		action: loginAction,
 	},
 	{
 		path: "/about",
@@ -45,6 +45,10 @@ const router = createBrowserRouter([
 	{
 		path: "/president",
 		element: <President />
+	},
+	{
+		path: "/dashboard/student",
+		element: <Students />
 	},
 ])
 
