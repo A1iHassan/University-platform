@@ -9,6 +9,7 @@ import AboutUs from './pages/about'
 import Goals from './pages/goals'
 import Admission from './pages/admissions'
 import Pages from './pages/programs'
+import Requirements from './pages/admissionRequirements'
 
 const router = createBrowserRouter([
 	{
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
 	{
 		path: "/programs",
 		element: <Pages />
+	},
+	{
+		path: "/admission-requirements",
+		element: <Requirements />
 	},
 ])
 
