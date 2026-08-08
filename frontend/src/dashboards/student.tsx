@@ -71,7 +71,7 @@ const ResultsContent = () => {
     { id: 4, subject: 'الذكاء الاصطناعي', score: 95, grade: 'A+' },
   ];
 
-  return (
+  return ( <main className='flex flex-col gap-5'>
     <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
       <h3 className="text-2xl font-bold text-slate-800 mb-6">سجل الدرجات - الفصل الدراسي الأول</h3>
       <div className="overflow-x-auto">
@@ -105,6 +105,40 @@ const ResultsContent = () => {
         </table>
       </div>
     </div>
+    <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+      <h3 className="text-2xl font-bold text-slate-800 mb-6">سجل الدرجات - الفصل الدراسي الثاني</h3>
+      <div className="overflow-x-auto">
+        <table className="w-full text-right border-collapse">
+          <thead>
+            <tr className="bg-slate-50 border-b border-slate-200 text-slate-600">
+              <th className="p-4 font-semibold">رقم المقرر</th>
+              <th className="p-4 font-semibold">المادة</th>
+              <th className="p-4 font-semibold">الدرجة</th>
+              <th className="p-4 font-semibold">التقدير</th>
+            </tr>
+          </thead>
+          <tbody>
+            {results.map((item) => (
+              <tr key={item.id} className="border-b border-slate-100 hover:bg-slate-50">
+                <td className="p-4 text-slate-500">CS-{100 + item.id}</td>
+                <td className="p-4 font-medium">{item.subject}</td>
+                <td className="p-4">{item.score}</td>
+                <td className="p-4">
+                  <span className={`px-2 py-1 rounded-md text-sm font-bold ${
+                    item.grade.includes('A') ? 'bg-green-100 text-green-700' :
+                    item.grade.includes('B') ? 'bg-blue-100 text-blue-700' :
+                    'bg-yellow-100 text-yellow-700'
+                  }`}>
+                    {item.grade}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </main>
   );
 };
 
