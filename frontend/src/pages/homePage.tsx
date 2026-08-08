@@ -94,14 +94,14 @@ const HomePage = () => {
         <article className="group relative col-span-3 overflow-hidden shadow-xl/40 bg-white mr-5 cursor-pointer">
           {/* Latest published news report */}
           <div className="overflow-hidden h-full relative z-10">
-            <img src="/Latest.jpeg" alt="Latest News" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
+            <img src="/newest.png" alt="Latest News" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
             {/* Dark overlay on the video */}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/40 to-slate-900/30 transition-opacity duration-500 group-hover:bg-slate-900/50 transition-color duration-200" />
           </div>
           <div className="p-6 z-100 absolute bottom-0 w-full flex justify-between items-end">
             <div className="text-right">
-              <h2 className="mb-3 text-5xl font-bold text-slate-100">آخر ما تم نشره</h2>
-              <p className="text-xl leading-relaxed text-slate-200">نبذة عن آخر مقال تم نشره</p>
+              <h2 className="mb-3 text-5xl font-bold text-slate-100">فتح باب السجيل لخريف 2026</h2>
+              <p className="text-xl leading-relaxed text-slate-200">بعد الإطلاق الرسمي لوالبتنا الإلكترونية ، تم بحمد الله تعالى فتح ...</p>
             </div>
             <div className="overflow-hidden mb-2">
               <div className="flex items-center gap-2 text-slate-100 font-semibold text-lg translate-x-[100%] transition-transform duration-500 group-hover:translate-x-0">
