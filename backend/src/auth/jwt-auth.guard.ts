@@ -24,8 +24,6 @@ export class JwtAuthGuard implements CanActivate {
           secret: config.jwtAccessSecret,
         });
     } catch (err) {
-      console.log(err);
-
       throw new UnauthorizedException('invalid or expired token');
     }
     return true;
