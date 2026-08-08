@@ -10,6 +10,7 @@ import Goals from './pages/goals'
 import Admission from './pages/admissions'
 import Pages from './pages/programs'
 import Requirements from './pages/admissionRequirements'
+import President from './pages/presidentWord'
 
 const router = createBrowserRouter([
 	{
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
 	{
 		path: "/admission-requirements",
 		element: <Requirements />
+	},
+	{
+		path: "/president",
+		element: <President />
 	},
 ])
 

@@ -46,8 +46,8 @@ const HomePage = () => {
           </div>
           
           <div className="relative z-10 col-start-2 row-start-2 flex flex-wrap items-end justify-end gap-4 p-12">
-            <button className="bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">تعرف على كلياتنا</button>
-            <button className="bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">تعرف على متطلبات التقديم</button>
+            <a href='#faculties' className="bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">تعرف على كلياتنا</a>
+            <Link to={{pathname: "/programs"}} className="bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">تعرف على متطلبات التقديم</Link>
           </div>
         </div>
       </section>
@@ -73,7 +73,7 @@ const HomePage = () => {
 	    </span>
 	  </p>
 	</Link>
-        <article className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-7 shadow-xl/20 justify-between p-3 h-1/2'>
+        <Link to={{pathname: "/president"}} className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-7 shadow-xl/20 justify-between p-3 h-1/2'>
 	  <h3 className='text-2xl font-bold'>كلمة رئيس الجامعة</h3>
 	  <p className=''>
 	    بسم الله الرحمن الرحيم و به نستعين الحمد لله الذي بنعمته تتم الصالحات وبفضله ومنه وكرمه تقضى الحاجات وتتنزل الرحمات ، إلي ابنائي الطلاب و
@@ -82,7 +82,7 @@ const HomePage = () => {
 	      <ChevronLeftIcon width={16} height={16}/>
 	    </span>
 	  </p>
-	</article>
+	</Link>
         <article className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-7 shadow-xl/20 justify-between p-3 h-1/2'>
 	  <h3 className='text-2xl font-bold'>العلاقات العامة</h3>
 	  <p className=''>
@@ -178,7 +178,7 @@ const HomePage = () => {
       </section>
 
       {/* faculties section */}
-    <section className="h-[90svh] w-full flex flex-row p-12 gap-8 bg-slate-50" dir="rtl">
+    <section id='faculties' className="h-[90svh] w-full flex flex-row p-12 gap-8 bg-slate-50" dir="rtl">
       
       {/* Right Component: Table */}
       <div className="w-1/2 flex items-center">
