@@ -79,7 +79,7 @@ const NavigationBar: React.FC = () => {
 
       {/* Full-width dropdown panel, spans the entire nav bar */}
       <div
-        className={`absolute left-0 top-full w-full overflow-hidden border-b border-slate-800 bg-slate-900 shadow-xl transition-all duration-200 ease-out ${
+        className={`absolute z-10 left-0 top-full w-full overflow-hidden border-b border-slate-800 bg-slate-900 shadow-xl transition-all duration-200 ease-out ${
           openIndex !== null
             ? "max-h-96 opacity-100"
             : "pointer-events-none max-h-0 opacity-0"
