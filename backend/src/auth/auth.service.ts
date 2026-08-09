@@ -53,7 +53,7 @@ export class AuthService {
     const [user] = await this.db
       .select()
       .from(users)
-      .where(eq(users.id, payload.sub));
+      .where(eq(users.id, Number(payload.sub)));
     if (!user) {
       throw new UnauthorizedException('invalid refresh token');
     }
@@ -67,7 +67,7 @@ export class AuthService {
     const [user] = await this.db
       .select()
       .from(users)
-      .where(eq(users.id, userId))
+      .where(eq(users.id, Number(userId)))
       .limit(1);
 
     if (!user) throw new UnauthorizedException('no matches');
@@ -77,7 +77,7 @@ export class AuthService {
 
   private async issueToken(user: User) {
     const payload: JwtPayload = {
-      sub: user.id,
+      sub: String(user.id),
       username: user.username,
       role: user.role,
     };
