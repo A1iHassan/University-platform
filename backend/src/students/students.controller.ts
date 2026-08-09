@@ -23,18 +23,18 @@ export class StudentsController {
     return this.studentsService.get_all();
   }
 
-@Get(':id')
+  @Get(':id')
   get_single_student(@Param('id', ParseIntPipe) id: number) {
     return this.studentsService.get_single_student(id);
   }
 
   @Get(':id/curriculums')
-  getStudentCurriculums(@Param('id', ParseIntPipe) id: number) {
-    return this.studentsService.getStudentCurriculums(id);
+  get_student_curriculums(@Param('id', ParseIntPipe) id: number) {
+    return this.studentsService.get_student_curriculums(id);
   }
 
   @Get(':id/grades')
-  getStudentGrades(@Param('id', ParseIntPipe) id: number) {
-    return this.studentsService.getStudentGrades(id);
+  get_student_grades(@Param('id', ParseIntPipe) id: number) {
+    return this.studentsService.get_student_grades(id);
   }
 }

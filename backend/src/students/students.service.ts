@@ -55,7 +55,7 @@ export class StudentsService {
     }
   }
 
-  async getStudentCurriculums(id: number) {
+  async get_student_curriculums(id: number) {
     try {
       const student = await this.db.query.students.findFirst({
         where: eq(students.id, id),
@@ -74,11 +74,13 @@ export class StudentsService {
     } catch (error) {
       if (error instanceof NotFoundException) throw error;
       this.logger.error('error fetching student curriculums: ', error);
-      throw new InternalServerErrorException('failed to fetch student curriculums');
+      throw new InternalServerErrorException(
+        'failed to fetch student curriculums',
+      );
     }
   }
 
-  async getStudentGrades(id: number) {
+  async get_student_grades(id: number) {
     try {
       const student = await this.db.query.students.findFirst({
         where: eq(students.id, id),
@@ -100,4 +102,3 @@ export class StudentsService {
     }
   }
 }
-
