@@ -3,7 +3,7 @@ import { timestamp } from 'drizzle-orm/pg-core';
 import { integer } from 'drizzle-orm/pg-core';
 import { pgEnum, pgTable, text, serial } from 'drizzle-orm/pg-core';
 
-export const status_enum = pgEnum('status', [
+export const letter_grade_enum = pgEnum('letter_grade', [
   'A+',
   'A',
   'B+',
@@ -51,7 +51,7 @@ export const results = pgTable('results', {
     .notNull()
     .references(() => curriculums.id),
   grade: text().notNull(),
-  status: status_enum(),
+  letter_grade: letter_grade_enum(),
   created_at: timestamp({ withTimezone: true }).defaultNow(),
   updated_at: timestamp({ withTimezone: true }).defaultNow(),
 });
