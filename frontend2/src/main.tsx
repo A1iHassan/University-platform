@@ -4,6 +4,8 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import MainLayout from './layouts/mainLayout'
 import HomePage from './pages/homePage'
+import StudentsLayout from './layouts/studentsLayout'
+import './i18n/config'
 
 const router = createBrowserRouter([
 	{
@@ -27,7 +29,8 @@ const router = createBrowserRouter([
 		element: <></>,
 	},
 	{
-		element: <></>,
+		path: "/dashboard/students",
+		element: <StudentsLayout />,
 		children: [],
 	},
 	{

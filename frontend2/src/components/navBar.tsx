@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 type NavItem = {
@@ -39,10 +40,11 @@ const NAV_ITEMS: NavItem[] = [
 
 const NavigationBar: React.FC = () => {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
+  const { t, i18n } = useTranslation();
 
   return (
     <nav
-      className="relative w-full bg-slate-950 border-b border-slate-800"
+      className="sticky top-0 z-20 w-full bg-slate-950 border-b border-slate-800"
       onMouseLeave={() => setOpenIndex(null)}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -51,6 +53,17 @@ const NavigationBar: React.FC = () => {
         </span>
 
         <ul className="flex items-center gap-1">
+	  <li className="rounded-md px-3 py-2 text-sm font-medium transition-colors">
+	    <button 
+	      className="text-white"
+	      onClick={() => {
+    		const newLang = i18n.language === 'en' ? 'ar' : 'en';
+    		i18n.changeLanguage(newLang);
+	      }}	
+	      >
+	        {t('language')}
+	    </button>
+	  </li>
           {NAV_ITEMS.map((item, index) => (
             <li
               key={item.label}
