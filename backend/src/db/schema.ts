@@ -78,4 +78,9 @@ export const curriculum_relations = relations(curriculums, ({ many }) => ({
   results: many(results),
 }));
 
+export const results_relations = relations(results, ({ one }) => ({
+  student: one(students, { fields: [results.student_id], references: [students.id] }),
+  curriculum: one(curriculums, { fields: [results.curriculum_id], references: [curriculums.id] }),
+}));
+
 export type User = typeof users.$inferSelect;
