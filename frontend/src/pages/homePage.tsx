@@ -11,10 +11,16 @@ const MOCK_LOCATIONS = {
   campus3: 'https://www.openstreetmap.org/export/embed.html?bbox=139.7562%2C35.6796%2C139.7735%2C35.6881&layer=mapnik',
 };
 
+const facultiesData = [
+  { id: 1, name: 'كلية الهندسة', description: 'تفاصيل ومعلومات كلية الهندسة...' },
+  { id: 2, name: 'كلية علوم الحاسوب', description: 'تفاصيل ومعلومات كلية علوم الحاسوب...' },
+  { id: 3, name: 'كلية إدارة الأعمال', description: 'تفاصيل ومعلومات كلية إدارة الأعمال...' },
+  { id: 4, name: 'كلية التصميم والفنون', description: 'تفاصيل ومعلومات كلية التصميم والفنون...' },
+];
+
 const HomePage = () => {
   const [activeMapUrl, setActiveMapUrl] = useState(MOCK_LOCATIONS.main)
-
-
+  const [activeFaculty, setActiveFaculty] = useState(facultiesData[0]);
 	return (
     <main className="bg-slate-50 text-slate-800">
       <NavBar />
@@ -40,8 +46,8 @@ const HomePage = () => {
           </div>
           
           <div className="relative z-10 col-start-2 row-start-2 flex flex-wrap items-end justify-end gap-4 p-12">
-            <button className="bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">تعرف على كلياتنا</button>
-            <button className="bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">تعرف على متطلبات التقديم</button>
+            <a href='#faculties' className="bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">تعرف على كلياتنا</a>
+            <Link to={{pathname: "/programs"}} className="bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900 cursor-pointer">تعرف على متطلبات التقديم</Link>
           </div>
         </div>
       </section>
@@ -67,7 +73,7 @@ const HomePage = () => {
 	    </span>
 	  </p>
 	</Link>
-        <article className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-7 shadow-xl/20 justify-between p-3 h-1/2'>
+        <Link to={{pathname: "/president"}} className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-7 shadow-xl/20 justify-between p-3 h-1/2'>
 	  <h3 className='text-2xl font-bold'>كلمة رئيس الجامعة</h3>
 	  <p className=''>
 	    بسم الله الرحمن الرحيم و به نستعين الحمد لله الذي بنعمته تتم الصالحات وبفضله ومنه وكرمه تقضى الحاجات وتتنزل الرحمات ، إلي ابنائي الطلاب و
@@ -76,7 +82,7 @@ const HomePage = () => {
 	      <ChevronLeftIcon width={16} height={16}/>
 	    </span>
 	  </p>
-	</article>
+	</Link>
         <article className='group hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-7 shadow-xl/20 justify-between p-3 h-1/2'>
 	  <h3 className='text-2xl font-bold'>العلاقات العامة</h3>
 	  <p className=''>
@@ -94,14 +100,14 @@ const HomePage = () => {
         <article className="group relative col-span-3 overflow-hidden shadow-xl/40 bg-white mr-5 cursor-pointer">
           {/* Latest published news report */}
           <div className="overflow-hidden h-full relative z-10">
-            <img src="/Latest.jpeg" alt="Latest News" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
+            <img src="/newest.png" alt="Latest News" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
             {/* Dark overlay on the video */}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/40 to-slate-900/30 transition-opacity duration-500 group-hover:bg-slate-900/50 transition-color duration-200" />
           </div>
-          <div className="p-6 z-100 absolute bottom-0 w-full flex justify-between items-end">
+          <div className="p-6 z-20 absolute bottom-0 w-full flex justify-between items-end">
             <div className="text-right">
-              <h2 className="mb-3 text-5xl font-bold text-slate-100">آخر ما تم نشره</h2>
-              <p className="text-xl leading-relaxed text-slate-200">نبذة عن آخر مقال تم نشره</p>
+              <h2 className="mb-3 text-5xl font-bold text-slate-100">فتح باب السجيل لخريف 2026</h2>
+              <p className="text-xl leading-relaxed text-slate-200">بعد الإطلاق الرسمي لوالبتنا الإلكترونية ، تم بحمد الله تعالى فتح ...</p>
             </div>
             <div className="overflow-hidden mb-2">
               <div className="flex items-center gap-2 text-slate-100 font-semibold text-lg translate-x-[100%] transition-transform duration-500 group-hover:translate-x-0">
@@ -170,6 +176,50 @@ const HomePage = () => {
           </button>
         </aside>
       </section>
+
+      {/* faculties section */}
+    <section id='faculties' className="h-[90svh] w-full flex flex-row p-12 gap-8 bg-slate-50" dir="rtl">
+      
+      {/* Right Component: Table */}
+      <div className="w-1/2 flex items-center">
+        <table className="w-full text-right border-collapse">
+          <tbody>
+            {facultiesData.map((faculty) => (
+              <tr 
+                key={faculty.id} 
+                onMouseEnter={() => setActiveFaculty(faculty)}
+                className={`border-b border-slate-300 cursor-pointer transition-colors duration-200 ${
+                  activeFaculty.id === faculty.id ? 'bg-slate-200' : 'hover:bg-slate-100'
+                }`}
+              >
+                <td className="p-6 text-2xl font-semibold text-slate-800">
+                  {faculty.name}
+                </td>
+              </tr>
+            ))}
+            {/* 5th Row: Static CTA */}
+            <tr className="cursor-pointer hover:bg-slate-100 transition-colors duration-200">
+              <td className="p-6 text-2xl font-bold text-orange-600">
+                تعرف على باقي الكليات
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {/* Left Component: Dynamic Details Div */}
+      <div className="w-1/2 flex items-center justify-center p-8">
+        <div className="w-full h-full max-h-[60%] bg-white rounded-2xl shadow-lg border border-slate-200 p-10 flex flex-col gap-4 transition-all duration-300">
+          <h2 className="text-4xl font-bold text-slate-900 border-b border-slate-200 pb-4">
+            {activeFaculty.name}
+          </h2>
+          <p className="text-xl text-slate-600 leading-relaxed">
+            {activeFaculty.description}
+          </p>
+        </div>
+      </div>
+
+    </section>
 
       {/* Staff Page / Section */}
       <section className="bg-slate-100 px-6 py-16 h-svh flex flex-wrap gap-10 justify-center items-center">

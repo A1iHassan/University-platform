@@ -4,16 +4,16 @@ const Footer = () => {
       return <footer className="border-t border-slate-200 bg-slate-900 px-6 py-14 text-slate-300">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div>
-            <h2 className="text-2xl font-bold text-white">اسم الجامعة</h2>
-            <p className="mt-2 text-sm text-slate-400">شعار الجامعة أو عبارة تمثل الجامعة</p>
+            <h2 className="text-2xl font-bold text-white">الجامعة التكنلوجية</h2>
+            <p className="mt-2 text-sm text-slate-400">لتقديم تعليم متميز و بحوث علمية تقنية مبتكرة لتلبية تغيرات العصر المعرفية و البحثية و المحتمعية</p>
           </div>
           
           <ul className="flex items-center gap-4">
             {/* Media accounts */}
-            <li><a href="#social1" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-slate-800">حساب</a></li>
-            <li><a href="#social2" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-slate-800">حساب</a></li>
-            <li><a href="#social3" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-slate-800">حساب</a></li>
-            <li><a href="#social4" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-slate-800">حساب</a></li>
+            <li><a href="#social1" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-slate-800"></a></li>
+            <li><a href="#social2" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-slate-800"></a></li>
+            <li><a href="#social3" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-slate-800"></a></li>
+            <li><a href="#social4" className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-all duration-200 hover:border-slate-500 hover:text-white hover:bg-slate-800"></a></li>
           </ul>
         </div>
         
