@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 
 const BACKGROUND_IMAGES: string[] = [
   "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80",
@@ -11,6 +12,8 @@ const FADE_INTERVAL_MS = 5000;
 
 const HeroSection = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
+
+  const { t } = useTranslation()
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -41,7 +44,9 @@ const HeroSection = () => {
       {/* Content grid */}
       <div className="relative z-10 grid h-full w-full grid-cols-2 grid-rows-2 gap-6 px-10 py-10 md:px-16 md:py-14">
         <p className="col-start-1 row-span-2 flex items-center text-3xl font-semibold leading-snug text-white md:text-5xl">
-          Build something the world hasn&apos;t seen yet.
+	  <img src="" alt="logo"/>
+	  <h1 className="">{t('uni_name')}</h1>
+	  <span className="">{t('uni_motto')}</span>
         </p>
 
         <div className="col-start-2 row-start-2 flex items-end justify-end gap-4">
@@ -49,13 +54,13 @@ const HeroSection = () => {
             to={{pathname: ""}}
             className="rounded-md bg-indigo-500 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-indigo-400"
           >
-            Get Started
+	    {t('more_faculties')} 
           </Link>
           <Link
             to={{pathname: ""}}
             className="rounded-md border border-white/30 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10"
           >
-            Learn More
+	    {t('more_admission')}
           </Link>
         </div>
       </div>
