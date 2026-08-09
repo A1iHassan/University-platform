@@ -1,37 +1,66 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router";
+
+type NavSubItem = {
+  name: string;
+  path: string;
+};
 
 type NavItem = {
   label: string;
-  items: string[];
+  items: NavSubItem[];
 };
 
 const NavigationBar: React.FC = () => {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
   const { t, i18n } = useTranslation();
-const NAV_ITEMS: NavItem[] = [
-  {
-    label: t('digital_services'),
-    items: [t('application_portal'), t('students_portal'), t('teachers_portal'), t('admins_portal'), t('e_library')],
-  },
-  {
-    label: t('deanships'),
-    items: [t('dean_students'), t('dean_admission'), t('dean_research')],
-  },
-  {
-    label: t('secretariats'),
-    items: [t('secret_science'), t('secret_lib')],
-  },
-  {
-    label: t('faculties'),
-    items: ["Help Center", "Contact Support", "System Status", "Report a Bug"],
-  },
-  {
-    label: t('research_centers'),
-    items: [t('center_1'), t('center_2'), t('center_3')],
-  },
-];
+
+  const NAV_ITEMS: NavItem[] = [
+    {
+      label: t("digital_services"),
+      items: [
+        { name: t("application_portal"), path: "/applications" },
+        { name: t("students_portal"), path: "/login/student" },
+        { name: t("teachers_portal"), path: "/login/teacher" },
+        { name: t("admins_portal"), path: "/login/admin" },
+        { name: t("e_library"), path: "/a" },
+      ],
+    },
+    {
+      label: t("deanships"),
+      items: [
+        { name: t("dean_students"), path: "/deanship/students" },
+        { name: t("dean_admission"), path: "/deanship/applications" },
+        { name: t("dean_research"), path: "/deanship/research" },
+      ],
+    },
+    {
+      label: t("secretariats"),
+      items: [
+        { name: t("secret_science"), path: "/secretariat/science" },
+        { name: t("secret_lib"), path: "/secretariat/lib" },
+      ],
+    },
+    {
+      label: t("faculties"),
+      items: [
+        { name: "Help Center", path: "" },
+        { name: "Contact Support", path: "" },
+        { name: "System Status", path: "" },
+        { name: "Report a Bug", path: "" },
+      ],
+    },
+    {
+      label: t("research_centers"),
+      items: [
+        { name: t("center_1"), path: "" },
+        { name: t("center_2"), path: "" },
+        { name: t("center_3"), path: "" },
+      ],
+    },
+  ];
 
   return (
     <nav
@@ -42,21 +71,30 @@ const NAV_ITEMS: NavItem[] = [
         <span className="text-lg font-semibold tracking-tight text-white">
           Acme<span className="text-indigo-400">.</span>
         </span>
-
         <ul className="flex items-center gap-1">
-	  <li className="rounded-md px-3 py-2 text-sm font-medium transition-colors">
-	    <button 
-	      className="text-white"
-	      onClick={() => {
-    		const newLang = i18n.language === 'en' ? 'ar' : 'en';
-    		i18n.changeLanguage(newLang);
-	      }}	
-	      >
-	        {t('language')}
-	    </button>
-	  </li>
-	  <li className="rounded-md px-3 py-2 text-sm text-white font-medium transition-colors">{t('main')}</li>
-	  <li className="rounded-md px-3 py-2 text-sm text-white font-medium transition-colors">{t('about_us')}</li>
+          <li className="rounded-md px-3 py-2 text-sm font-medium transition-colors">
+            <button
+              className="text-white"
+              onClick={() => {
+                const newLang = i18n.language === "en" ? "ar" : "en";
+                i18n.changeLanguage(newLang);
+              }}
+            >
+              {t("language")}
+            </button>
+          </li>
+          <Link
+            to={{ pathname: "/" }}
+            className="rounded-md px-3 py-2 text-sm text-white font-medium transition-colors"
+          >
+            {t("main")}
+          </Link>
+          <Link
+            to={{ pathname: "/aboutus" }}
+            className="rounded-md px-3 py-2 text-sm text-white font-medium transition-colors"
+          >
+            {t("about_us")}
+          </Link>
           {NAV_ITEMS.map((item, index) => (
             <li
               key={item.label}
@@ -95,13 +133,13 @@ const NAV_ITEMS: NavItem[] = [
           <div className="mx-auto max-w-7xl px-6 py-6">
             <ul className="flex flex-wrap gap-x-10 gap-y-3">
               {NAV_ITEMS[openIndex].items.map((subItem) => (
-                <li key={subItem}>
-                  <a
-                    href="#"
+                <li key={subItem.name}>
+                  <Link
+                    to={{ pathname: subItem.path }}
                     className="text-sm text-slate-300 transition-colors hover:text-indigo-400"
                   >
-                    {subItem}
-                  </a>
+                    {subItem.name}
+                  </Link>
                 </li>
               ))}
             </ul>
