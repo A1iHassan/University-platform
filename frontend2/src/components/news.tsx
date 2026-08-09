@@ -1,11 +1,14 @@
 import { ChevronLeftIcon, ArrowLongLeftIcon } from "@heroicons/react/24/outline";
+import { useTranslation } from "react-i18next";
 
 const News = () => {
+
+	const { t } = useTranslation()
 
 	return (
 <>	
       {/* Latest News Section */}
-      <h2 className='text-4xl text-center mt-20'>آخر الأخبار</h2>
+      <h2 className='text-4xl text-center mt-20'>{t('latest_news')}</h2>
       <section className="mx-auto grid h-screen w-full gap-8 px-6 pb-32 pt-10 md:grid-cols-5">
         <article className="group relative col-span-3 overflow-hidden shadow-xl/40 bg-white mr-5 cursor-pointer">
           {/* Latest published news report */}
@@ -16,13 +19,13 @@ const News = () => {
           </div>
           <div className="p-6 z-20 absolute bottom-0 w-full flex justify-between items-end">
             <div className="text-right">
-              <h2 className="mb-3 text-5xl font-bold text-slate-100">فتح باب السجيل لخريف 2026</h2>
-              <p className="text-xl leading-relaxed text-slate-200">بعد الإطلاق الرسمي لوالبتنا الإلكترونية ، تم بحمد الله تعالى فتح ...</p>
+              <h2 className="mb-3 text-5xl font-bold text-slate-100">{t('register_title')}</h2>
+              <p className="text-xl leading-relaxed text-slate-200">{t('register_snippet')}</p>
             </div>
             <div className="overflow-hidden mb-2">
               <div className="flex items-center gap-2 text-slate-100 font-semibold text-lg translate-x-[100%] transition-transform duration-500 group-hover:translate-x-0">
                 <ArrowLongLeftIcon className="h-6 w-6" />
-                <span>اقرأ المزيد</span>
+                <span>{t('read_more')}</span>
               </div>
             </div>
           </div>
@@ -41,12 +44,12 @@ const News = () => {
              <div className="overflow-hidden mb-1">
                <div className="flex items-center gap-2 text-slate-100 font-semibold translate-x-[100%] transition-transform duration-500 group-hover:translate-x-0">
                  <ArrowLongLeftIcon className="h-5 w-5" />
-                 <span>اقرأ المزيد</span>
+                 <span>{t('read_more')}</span>
                </div>
              </div>
              <div className="text-left">
-               <h2 className="mb-2 text-3xl font-bold text-slate-100">إطلاق موقعنا الرسمي</h2>
-               <p className="text-lg leading-relaxed text-slate-200 font-light">تم رسميا إطلاق الصفحة الإلكترونية الرسمية الخاصة بالجامعة ...</p>
+               <h2 className="mb-2 text-3xl font-bold text-slate-100">{t('site_title')}</h2>
+               <p className="text-lg leading-relaxed text-slate-200 font-light">{t('site_snippet')}</p>
              </div>
            </div>
 	    </div>
@@ -63,12 +66,12 @@ const News = () => {
              <div className="overflow-hidden mb-1">
                <div className="flex items-center gap-2 text-slate-100 font-semibold translate-x-[100%] transition-transform duration-500 group-hover:translate-x-0">
                  <ArrowLongLeftIcon className="h-5 w-5" />
-                 <span>اقرأ المزيد</span>
+                 <span>{t('read_more')}</span>
                </div>
              </div>
              <div className="text-right">
-               <h2 className="mb-2 text-3xl font-bold text-slate-100">مقال سابق</h2>
-               <p className="text-lg leading-relaxed text-slate-200">نبذة سريعة عن المقال</p>
+               <h2 className="mb-2 text-3xl font-bold text-slate-100">{t('other_title')}</h2>
+               <p className="text-lg leading-relaxed text-slate-200">{t('other_snippet')}</p>
              </div>
            </div>
 	    </div>
@@ -78,7 +81,7 @@ const News = () => {
             <div className="flex items-center transition-all duration-300 w-0 overflow-hidden group-hover:w-6 opacity-0 group-hover:opacity-100 group-hover:mr-1">
               <ChevronLeftIcon className="h-5 w-5 text-slate-700 flex-shrink-0" />
             </div>
-            <span>اطلع على مزيد من المقالات</span>
+            <span>{t('see_more')}</span>
             <div className="absolute bottom-0 right-0 w-full flex flex-col gap-[2px]">
               <div className="h-[2px] w-full bg-slate-700 transition-all duration-300"></div>
               <div className="h-[2px] w-2/3 bg-slate-700 transition-all duration-300"></div>
