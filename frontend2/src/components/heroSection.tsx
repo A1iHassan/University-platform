@@ -24,7 +24,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="h-[80svh] w-full relative overflow-hidden">
+    <section className="h-[90svh] w-full relative overflow-hidden">
       {/* Crossfading background layers */}
       {BACKGROUND_IMAGES.map((src, index) => (
         <img
@@ -54,13 +54,13 @@ const HeroSection = () => {
         <div className="col-start-2 row-start-2 flex items-end justify-end gap-4">
           <Link
             to={{pathname: ""}}
-            className="rounded-md bg-indigo-500 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-indigo-400"
+            className="bg-white/10 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-50 hover:text-slate-700"
           >
 	    {t('more_faculties')} 
           </Link>
           <Link
             to={{pathname: ""}}
-            className="rounded-md border border-white/30 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10"
+            className="bg-white/10 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-slate-50 hover:text-slate-700"
           >
 	    {t('more_admission')}
           </Link>
