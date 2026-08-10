@@ -76,6 +76,9 @@ const Faculties = () => {
         </div>
 
         {/* Cards */}
+	<h2 className="text-4xl font-bold text-slate-700 mt-30 mb-10">
+	الخدمات الإلكترونية
+	</h2>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => {
             const Icon = service.icon;

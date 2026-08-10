@@ -22,14 +22,12 @@ const NavigationBar: React.FC = () => {
     {
       label: t("about_us"),
       items: [
-        { name: t("عن الجامعة"), path: "/" },
-        { name: t("معلومات التواصل"), path: "" },
-        { name: t("معرض الصور والفيديو"), path: "" },
+        { name: t("معلومات التواصل"), path: "/" },
+        { name: t("معرض الصور و الفيديوهات"), path: "" },
         { name: t("إحصائيات الجامعة"), path: "" },
-        { name: t("الشراكات والإتفاقيات"), path: "" },
-        { name: t("مجالس ولجان الجامعة"), path: "" },
-        { name: t("القوانين واللوائح"), path: "" },
-        { name: t("مستشفيات الجامعة"), path: "" },
+        { name: t("الشراكات و الاتفاقيات"), path: "" },
+        { name: t("مجالس و لجان الجامعة"), path: "" },
+        { name: t("القوانين و اللوائح"), path: "" },
       ],
     },
     {
@@ -81,8 +79,8 @@ const NavigationBar: React.FC = () => {
       className="sticky top-0 z-20 w-full bg-[#d67528ff] shadow-xl/10"
       onMouseLeave={() => setOpenIndex(null)}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <span className="text-lg font-semibold tracking-tight text-white flex gap-1 items-center self-end">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
+        <span className="text-lg font-semibold tracking-tight my-auto text-white flex gap-1 items-center self-end">
    	<img src="/logo.svg" alt="logo" width={30} height={30}/>
 	{t('uni_name')}
         </span>
@@ -105,7 +103,7 @@ const NavigationBar: React.FC = () => {
             </button>
  
             <ul
-              className={`absolute right-0 top-full z-10 w-32 overflow-hidden rounded border border-[#d67528]/20 bg-[#d67528ff]/80 shadow-xl/20 transition-all duration-200 ease-out ${
+              className={`absolute right-0 top-full z-10 w-32 overflow-hidden rounded border border-[#d67528] bg-[#d67528ff]/80 shadow-xl/20 transition-all duration-200 ease-out ${
                 isLangOpen
                   ? "max-h-40 opacity-100"
                   : "pointer-events-none max-h-0 opacity-0"
@@ -145,9 +143,9 @@ const NavigationBar: React.FC = () => {
             >
               <button
                 type="button"
-                className={`flex items-center gap-1 rounded px-3 py-2 text-sm font-medium transition-colors hover:text-[#d67528ff] hover:bg-slate-50 ${
+                className={`flex items-center h-15 gap-1 px-3 py-2 text-sm font-medium transition-colors hover:text-[#d67528ff] hover:bg-slate-50 ${
                   openIndex === index
-                    ? "text-[#d67528ff] bg-slate-50"
+                    ? "text-white"
                     : "text-slate-300 hover:text-[#d67528ff] hover:bg-slate-50"
                 }`}
               >
@@ -172,24 +170,19 @@ const NavigationBar: React.FC = () => {
         }`}
       >
         {openIndex !== null && (
-          <div className="px-6 py-6">
-            <div className="flex flex-col items-start gap-3">
-              <span className="text-sm font-semibold text-[#d67528ff] border-b border-[#d67528ff] pb-2 w-full">
-                {NAV_ITEMS[openIndex].label}
-              </span>
-              <ul className="flex flex-col gap-y-1 w-full">
-                {NAV_ITEMS[openIndex].items.map((subItem) => (
-                  <li key={subItem.name}>
-                    <Link
-                      to={{ pathname: subItem.path }}
-                      className="block text-sm text-[#d67528ff] px-15 py-8 transition-colors hover:text-slate-50 hover:bg-[#d67528ff]"
-                    >
-                      {subItem.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="h-40 px-6 py-6">
+            <ul className="flex h-full flex-wrap items-center gap-y-3 w-full">
+              {NAV_ITEMS[openIndex].items.map((subItem, index) => (
+                <li key={subItem.name}>
+                  <Link
+                    to={{ pathname: subItem.path }}
+                    className={`text-sm  h-90 text-[#d67528ff] border-l px-15 py-8 ${index === 0 ? "border-r" : ""} border-[#d67528ff]  transition-colors hover:text-slate-50 hover:bg-[#d67528ff]`}
+                  >
+                    {subItem.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </div>
