@@ -15,8 +15,8 @@ import {
 import { useState } from 'react';
 import { PrimarySidebar } from '../components/PrimarySidebar';
 import { SecondarySidebar } from '../components/SecondarySidebar';
-import { DashboardContent } from '../components/DashboardContent';
 import React from 'react';
+import { Outlet } from 'react-router';
 
 export type SecondaryTabItem = {
   id: string;
@@ -96,9 +96,6 @@ export function AdminDashboard() {
   const currentPrimaryTab = primaryTabsData.find(tab => tab.id === activePrimaryTabId) || primaryTabsData[0];
 
   // Find active secondary tab data
-  const currentSecondaryTab = currentPrimaryTab.secondaryTabs.find(
-    tab => tab.id === activeSecondaryTabId
-  ) || currentPrimaryTab.secondaryTabs[0] || null;
 
   // Handle selecting a primary tab
   const handleSelectPrimaryTab = (tabId: string) => {
@@ -120,7 +117,7 @@ export function AdminDashboard() {
   };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-slate-950 font-sans text-slate-100 antialiased select-none">
+    <div className="flex h-screen w-screen overflow-hidden bg-slate-100 font-sans text-slate-100 antialiased select-none">
       {/* 1. Primary Left Navigation Bar (Toggles expand on icon click) */}
       <PrimarySidebar
         tabs={primaryTabsData}
@@ -143,10 +140,7 @@ export function AdminDashboard() {
       )}
 
       {/* 3. Main Dashboard Workspace Content */}
-      <DashboardContent
-        activePrimaryTab={currentPrimaryTab}
-        activeSecondaryTab={currentSecondaryTab}
-      />
+      <Outlet />
     </div>
   );
 }
