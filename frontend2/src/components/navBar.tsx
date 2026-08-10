@@ -15,6 +15,7 @@ type NavItem = {
 
 const NavigationBar: React.FC = () => {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
+  const [isLangOpen, setIsLangOpen] = React.useState(false);
   const { t, i18n } = useTranslation();
 
   const NAV_ITEMS: NavItem[] = [
@@ -84,28 +85,55 @@ const NavigationBar: React.FC = () => {
 	{t('uni_name')}
         </span>
         <ul className="flex items-center gap-1">
-          <li className="rounded-md px-3 py-2 text-sm font-medium transition-colors">
+         <li
+            className="relative"
+            onMouseEnter={() => setIsLangOpen(true)}
+            onMouseLeave={() => setIsLangOpen(false)}
+          >
             <button
-              className="text-white"
-              onClick={() => {
-                const newLang = i18n.language === "en" ? "ar" : "en";
-                i18n.changeLanguage(newLang);
-              }}
+              type="button"
+              className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-white transition-colors"
             >
               {t("language")}
+              <ChevronDownIcon
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  isLangOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
-          </li>
+ 
+            <ul
+              className={`absolute right-0 top-full z-10 w-32 overflow-hidden rounded border border-[#d67528]/20 bg-[#d67528ff]/80 shadow-xl/20 transition-all duration-200 ease-out ${
+                isLangOpen
+                  ? "max-h-40 opacity-100"
+                  : "pointer-events-none max-h-0 opacity-0"
+              }`}
+            >
+              <li>
+                <button
+                  type="button"
+                  onClick={() => i18n.changeLanguage("ar")}
+                  className="block w-full px-3 py-2 text-left text-sm text-slate-50 transition-colors hover:bg-slate-50 hover:text-[#d67528]"
+                >
+                  العربية
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => i18n.changeLanguage("en")}
+                  className="block w-full px-3 py-2 text-left text-sm text-slate-50 transition-colors hover:bg-slate-50 hover:text-[#d67528]"
+                >
+                  English
+                </button>
+              </li>
+            </ul>
+          </li> 
           <Link
             to={{ pathname: "/" }}
             className="rounded-md px-3 py-2 text-sm text-white font-medium transition-colors"
           >
             {t("main")}
-          </Link>
-          <Link
-            to={{ pathname: "/aboutus" }}
-            className="rounded-md px-3 py-2 text-sm text-white font-medium transition-colors"
-          >
-            {t("about_us")}
           </Link>
           {NAV_ITEMS.map((item, index) => (
             <li

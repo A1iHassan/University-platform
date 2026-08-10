@@ -21,6 +21,8 @@ const CardsSection = () => {
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute left-1/2 top-0 h-6 w-[85%] origin-top-left rotate-[135deg] -translate-x-90 bg-[#d67528]" />
         <div className="absolute left-1/2 top-0 h-6 w-[85%] origin-top-left rotate-[135deg] -translate-x-80 bg-[#d67528]" />
+        <div className="absolute left-1/2 top-0 h-6 w-[85%] origin-top-left rotate-[135deg] translate-x-230 bg-[#d67528]" />
+        <div className="absolute left-1/2 top-0 h-6 w-[85%] origin-top-left rotate-[135deg] translate-x-220 bg-[#d67528]" />
       </div>
 
       <div className="relative z-10 flex w-full items-center justify-center items-center gap-15 px-10 py-16">
