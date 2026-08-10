@@ -68,8 +68,9 @@ const NavigationBar: React.FC = () => {
       onMouseLeave={() => setOpenIndex(null)}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <span className="text-lg font-semibold tracking-tight text-white">
-          Acme<span className="text-indigo-400">.</span>
+        <span className="text-lg font-semibold tracking-tight text-white flex gap-1 items-center self-end">
+   	<img src="/logo.svg" alt="logo" width={30} height={30}/>
+	{t('uni_name')}
         </span>
         <ul className="flex items-center gap-1">
           <li className="rounded-md px-3 py-2 text-sm font-medium transition-colors">
@@ -118,6 +119,7 @@ const NavigationBar: React.FC = () => {
               </button>
             </li>
           ))}
+	  <li className=""><Link to={{pathname: "/login"}} className="text-white">{t('log_in')}</Link></li>
         </ul>
       </div>
 
