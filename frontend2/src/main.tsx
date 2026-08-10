@@ -8,6 +8,7 @@ import StudentsLayout from './layouts/studentsLayout'
 import './i18n/config'
 import AboutPage from './pages/aboutPage'
 import PresidentPage from './pages/presidentPage'
+import RelationsPage from './pages/relationsPage'
 
 const router = createBrowserRouter([
 	{
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
 			{ path: "/contacts", element: <></> },
 			{ path: "/faculties", element: <></> },
 			{ path: "/library", element: <></> },
-			{ path: "/b", element: <></> },
+			{ path: "/relations", element: <RelationsPage /> },
 		],
 	},
 	{

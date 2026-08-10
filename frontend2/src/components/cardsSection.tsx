@@ -10,7 +10,7 @@ type CardItem = {
 const CardsSection = () => {
   const { t } = useTranslation();
   const CARDS: CardItem[] = [
-    { label: t('our_message'), content: t('our_message_content'), to: "/message" },
+    { label: t('our_message'), content: t('our_message_content'), to: "/aboutus" },
     { label: t('president'), content: t('president_content'), to: "/president" },
     { label: t('relations'), content: t('relations_content'), to: "/relations" },
   ];
