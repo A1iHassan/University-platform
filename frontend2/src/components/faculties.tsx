@@ -1,70 +1,107 @@
-import React from "react";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
-
-const PARALLAX_STRENGTH = 0.3;
+import {
+  BuildingLibraryIcon,
+  AcademicCapIcon,
+  BeakerIcon,
+  BookOpenIcon,
+  ComputerDesktopIcon,
+  UserGroupIcon,
+  ClipboardDocumentListIcon,
+  GlobeAltIcon,
+} from "@heroicons/react/24/outline";
 
 const Faculties = () => {
   const { t } = useTranslation();
-  const sectionRef = React.useRef<HTMLElement>(null);
-  const [offset, setOffset] = React.useState(0);
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      const section = sectionRef.current;
-      if (!section) return;
-
-      const rect = section.getBoundingClientRect();
-      // Distance the section's top has scrolled past the viewport top,
-      // used to nudge the background at a fraction of that speed.
-      setOffset(rect.top * PARALLAX_STRENGTH);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const services = [
+    {
+      title: t("faculties_details"),
+      to: "/faculties",
+      icon: BuildingLibraryIcon,
+    },
+    {
+      title: t("post_grads_programs"),
+      to: "/postgraduate",
+      icon: AcademicCapIcon,
+    },
+    {
+      title: "Research",
+      to: "/research",
+      icon: BeakerIcon,
+    },
+    {
+      title: "Scientific Journals",
+      to: "/journals",
+      icon: BookOpenIcon,
+    },
+    {
+      title: "E-Learning",
+      to: "/elearning",
+      icon: ComputerDesktopIcon,
+    },
+    {
+      title: "Student Affairs",
+      to: "/students",
+      icon: UserGroupIcon,
+    },
+    {
+      title: "Admissions",
+      to: "/admissions",
+      icon: ClipboardDocumentListIcon,
+    },
+    {
+      title: "International Relations",
+      to: "/international",
+      icon: GlobeAltIcon,
+    },
+  ];
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full h-[80svh] flex justify-center items-center px-10 py-16 md:px-20 overflow-hidden"
-    >
-      {/* Parallax background photo */}
-      <img
-        src="/faculty.jpeg"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute left-0 -top-24 h-[calc(100%+12rem)] w-full object-cover will-change-transform"
-        style={{ transform: `translateY(${offset/2.2}px)` }}
-      />
+    <section className="bg-slate-50 py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="rounded-3xl border border-slate-200 bg-white p-10 shadow-md mb-12">
+          <div className="mb-6">
+            <h2 className="text-4xl font-bold text-slate-900">
+              {t("faculties_title")}
+            </h2>
 
-      {/* Color overlay */}
-      { /* <div className="absolute inset-0 bg-[#99541c]/60" /> */ }
+            <div className="mt-3 h-1 w-24 rounded-full bg-[#d67528]" />
+          </div>
 
-      <div className="relative z-10 flex flex-col items-center w-full h-3/4 gap-12 md:flex-row md:items-center md:justify-center">
-        <article className="w-1/2 md:mr-8 bg-white/40 rounded p-10">
-          <h2 className="text-3xl font-semibold  md:text-4xl text-slate-900">
-            {t('faculties_title')}
-          </h2>
-          <p className="mt-4 text-xl leading-relaxed text-slate-300">
-            {t('faculties_section')}
+          <p className="max-w-4xl text-lg leading-8 text-slate-600">
+            {t("faculties_section")}
           </p>
-        </article>
+        </div>
 
-        <div className="flex flex-col gap-6">
-          <Link
-            to="/faculties/science"
-            className="flex h-32 w-72 items-center justify-center bg-slate-900 text-lg font-medium text-white shadow-xl/30 transition-colors hover:bg-slate-800"
-          >
-            {t('faculties_details')}
-          </Link>
-          <Link
-            to="/faculties/arts"
-            className="flex h-32 w-72 items-center justify-center bg-slate-900 text-lg font-medium text-white shadow-xl/30 transition-colors hover:bg-slate-800"
-          >
-            {t('post_grads_programs')}
-          </Link>
+        {/* Cards */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((service) => {
+            const Icon = service.icon;
+
+            return (
+              <Link
+                key={service.title}
+                to={service.to}
+                className="group overflow-hidden rounded-3xl bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              >
+                {/* Top Section */}
+                <div className="flex h-48 items-center justify-center bg-gradient-to-br from-[#d67528] via-[#e68b44] to-[#f4c28d]">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-lg transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="h-12 w-12 text-[#d67528]" />
+                  </div>
+                </div>
+
+                {/* Bottom Section */}
+                <div className="flex h-28 items-center justify-center px-6">
+                  <h3 className="text-center text-xl font-semibold text-slate-900">
+                    {service.title}
+                  </h3>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
