@@ -64,7 +64,7 @@ const NavigationBar: React.FC = () => {
 
   return (
     <nav
-      className="sticky top-0 z-20 w-full bg-[#d67528ff]"
+      className="sticky top-0 z-20 w-full bg-[#d67528ff] shadow-xl/10"
       onMouseLeave={() => setOpenIndex(null)}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
