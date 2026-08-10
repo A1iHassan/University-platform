@@ -25,7 +25,7 @@ const NavigationBar: React.FC = () => {
         { name: t("students_portal"), path: "/login/student" },
         { name: t("teachers_portal"), path: "/login/teacher" },
         { name: t("admins_portal"), path: "/login/admin" },
-        { name: t("e_library"), path: "/a" },
+        { name: t("e_library"), path: "/library" },
       ],
     },
     {
