@@ -1,55 +1,95 @@
-import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
-import { 
-  ChatBubbleLeftRightIcon, 
-  EyeIcon, 
-  FlagIcon 
-} from '@heroicons/react/24/outline';
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
+import {
+  ChatBubbleLeftRightIcon,
+  EyeIcon,
+  FlagIcon,
+} from "@heroicons/react/24/outline";
 
 const AboutPage = () => {
-	const { i18n } = useTranslation();
-  	// Handle LTR/RTL document direction and language attribute based on the active locale
-	useEffect(() => {
-		document.dir = i18n.dir();
-		document.documentElement.lang = i18n.language;
-	}, [i18n, i18n.language]);
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    document.dir = i18n.dir();
+    document.documentElement.lang = i18n.language;
+  }, [i18n, i18n.language]);
+
   return (
-    <section className="py-20">
-      <h1 className="text-4xl font-bold text-center mb-12">About us</h1>
-      
-      <div className="flex flex-col gap-12 max-w-6xl mx-auto px-6">
-        <div className="flex flex-col items-start">
-          <div className="flex items-center gap-2 mb-4 text-left">
-            <ChatBubbleLeftRightIcon className="h-6 w-6 text-gray-800" />
-            <h2 className="text-2xl font-semibold">Our Message</h2>
-          </div>
-          <p className="w-3/4 text-gray-600 leading-relaxed">
-            Content for the message goes here. The paragraph wrapper handles the 75% width constraint.
+    <section className="bg-slate-50 min-h-screen py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-20">
+          <h1 className="mt-3 text-5xl font-bold text-slate-900">
+	  {t('message')}
+          </h1>
+
+          <div className="mt-5 w-24 h-1 bg-[#d67528] rounded-full mx-auto" />
+
+          <p className="mt-6 max-w-2xl mx-auto text-slate-600 text-lg leading-relaxed">
+            Learn more about our mission, vision, and goals as we strive to
+            deliver meaningful experiences and lasting value.
           </p>
         </div>
 
-        <div className="flex flex-col items-start">
-          <div className="flex items-center gap-2 mb-4 text-left">
-            <EyeIcon className="h-6 w-6 text-gray-800" />
-            <h2 className="text-2xl font-semibold">Our Vision</h2>
-          </div>
-          <p className="w-3/4 text-gray-600 leading-relaxed">
-            Content for the vision goes here. The paragraph wrapper handles the 75% width constraint.
-          </p>
-        </div>
+        {/* Cards */}
+        <div className="space-y-10">
+          {/* Message */}
+          <div className="bg-white rounded shadow-md hover:shadow-xl transition duration-300 p-10">
+            <div className="flex items-center gap-4 mb-5">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#d67528]/10">
+                <ChatBubbleLeftRightIcon className="h-7 w-7 text-[#d67528]" />
+              </div>
 
-        <div className="flex flex-col items-start">
-          <div className="flex items-center gap-2 mb-4 text-left">
-            <FlagIcon className="h-6 w-6 text-gray-800" />
-            <h2 className="text-2xl font-semibold">Our Goals</h2>
+              <h2 className="text-3xl font-bold text-slate-900">
+                Our Message
+              </h2>
+            </div>
+
+            <p className="text-slate-600 leading-8 md:w-3/4">
+              Content for the message goes here. The paragraph wrapper handles
+              the 75% width constraint.
+            </p>
           </div>
-          <p className="w-3/4 text-gray-600 leading-relaxed">
-            Content for the goals goes here. The paragraph wrapper handles the 75% width constraint.
-          </p>
+
+          {/* Vision */}
+          <div className="bg-white rounded shadow-md hover:shadow-xl transition duration-300 p-10">
+            <div className="flex items-center gap-4 mb-5">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#d67528]/10">
+                <EyeIcon className="h-7 w-7 text-[#d67528]" />
+              </div>
+
+              <h2 className="text-3xl font-bold text-slate-900">
+                Our Vision
+              </h2>
+            </div>
+
+            <p className="text-slate-600 leading-8 md:w-3/4">
+              Content for the vision goes here. The paragraph wrapper handles
+              the 75% width constraint.
+            </p>
+          </div>
+
+          {/* Goals */}
+          <div className="bg-white rounded shadow-md hover:shadow-xl transition duration-300 p-10">
+            <div className="flex items-center gap-4 mb-5">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#d67528]/10">
+                <FlagIcon className="h-7 w-7 text-[#d67528]" />
+              </div>
+
+              <h2 className="text-3xl font-bold text-slate-900">
+                Our Goals
+              </h2>
+            </div>
+
+            <p className="text-slate-600 leading-8 md:w-3/4">
+              Content for the goals goes here. The paragraph wrapper handles the
+              75% width constraint.
+            </p>
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default AboutPage;
