@@ -1,7 +1,18 @@
 import React from 'react';
 import { CommandLineIcon } from '@heroicons/react/24/outline';
-import type { PrimaryTabItem } from '../types/navigation';
+export type SecondaryTabItem = {
+  id: string;
+  label: string;
+  description?: string;
+  icon?: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+};
 
+export type PrimaryTabItem = {
+  id: string;
+  label: string;
+  icon: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  secondaryTabs: SecondaryTabItem[];
+};
 interface PrimarySidebarProps {
   tabs: PrimaryTabItem[];
   activeTabId: string | null;

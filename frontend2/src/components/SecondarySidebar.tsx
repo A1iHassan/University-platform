@@ -1,7 +1,18 @@
 import React from 'react';
 import { DocumentDuplicateIcon } from '@heroicons/react/24/outline';
-import type { SecondaryTabItem } from '../types/navigation';
+export type SecondaryTabItem = {
+  id: string;
+  label: string;
+  description?: string;
+  icon?: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+};
 
+export type PrimaryTabItem = {
+  id: string;
+  label: string;
+  icon: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  secondaryTabs: SecondaryTabItem[];
+};
 interface SecondarySidebarProps {
   primaryTabLabel: string;
   tabs: SecondaryTabItem[];
