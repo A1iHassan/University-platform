@@ -3,7 +3,7 @@ import { timestamp } from 'drizzle-orm/pg-core';
 import { integer } from 'drizzle-orm/pg-core';
 import { pgEnum, pgTable, text, serial } from 'drizzle-orm/pg-core';
 
-export const status_enum = pgEnum('status', [
+export const letter_grade_enum = pgEnum('letter_grade', [
   'A+',
   'A',
   'B+',
@@ -51,7 +51,7 @@ export const results = pgTable('results', {
     .notNull()
     .references(() => curriculums.id),
   grade: text().notNull(),
-  status: status_enum(),
+  letter_grade: letter_grade_enum(),
   created_at: timestamp({ withTimezone: true }).defaultNow(),
   updated_at: timestamp({ withTimezone: true }).defaultNow(),
 });
@@ -76,6 +76,17 @@ export const student_relations = relations(students, ({ many }) => ({
 }));
 export const curriculum_relations = relations(curriculums, ({ many }) => ({
   results: many(results),
+}));
+
+export const results_relations = relations(results, ({ one }) => ({
+  student: one(students, {
+    fields: [results.student_id],
+    references: [students.id],
+  }),
+  curriculum: one(curriculums, {
+    fields: [results.curriculum_id],
+    references: [curriculums.id],
+  }),
 }));
 
 export type User = typeof users.$inferSelect;
