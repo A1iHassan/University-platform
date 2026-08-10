@@ -19,6 +19,17 @@ const NavigationBar: React.FC = () => {
 
   const NAV_ITEMS: NavItem[] = [
     {
+      label: t("about_us"),
+      items: [
+        { name: t("معلومات التواصل"), path: "/" },
+        { name: t("معرض الصور و الفيديوهات"), path: "" },
+        { name: t("إحصائيات الجامعة"), path: "" },
+        { name: t("الشراكات و الاتفاقيات"), path: "" },
+        { name: t("مجالس و لجان الجامعة"), path: "" },
+        { name: t("القوانين و اللوائح"), path: "" },
+      ],
+    },
+    {
       label: t("digital_services"),
       items: [
         { name: t("application_portal"), path: "/applications" },
@@ -104,10 +115,10 @@ const NavigationBar: React.FC = () => {
             >
               <button
                 type="button"
-                className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                className={`flex items-center gap-1 rounded px-3 py-2 text-sm font-medium transition-colors hover:text-[#d67528ff] hover:bg-slate-50 ${
                   openIndex === index
                     ? "text-white"
-                    : "text-slate-300 hover:text-white"
+                    : "text-slate-300 hover:text-[#d67528ff] hover:bg-slate-50"
                 }`}
               >
                 {item.label}
@@ -119,7 +130,6 @@ const NavigationBar: React.FC = () => {
               </button>
             </li>
           ))}
-	  <li className=""><Link to={{pathname: "/login"}} className="text-white">{t('log_in')}</Link></li>
         </ul>
       </div>
 

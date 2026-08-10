@@ -40,7 +40,7 @@ const Faculties = () => {
       />
 
       {/* Color overlay */}
-      <div className="absolute inset-0 bg-[#99541c]/60" />
+      { /* <div className="absolute inset-0 bg-[#99541c]/60" /> */ }
 
       <div className="relative z-10 flex flex-col items-center w-full h-3/4 gap-12 md:flex-row md:items-center md:justify-center">
         <article className="w-1/2 md:mr-8 bg-white/40 rounded p-10">
