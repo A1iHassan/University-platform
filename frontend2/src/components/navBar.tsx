@@ -96,7 +96,7 @@ const NavigationBar: React.FC = () => {
             >
               {t("language")}
               <ChevronDownIcon
-                className={`h-4 w-4 transition-transform duration-200 ${
+                className={`h-4 w-4 transition-transform duration-200  ${
                   isLangOpen ? "rotate-180" : ""
                 }`}
               />
