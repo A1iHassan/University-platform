@@ -145,7 +145,7 @@ const NavigationBar: React.FC = () => {
                 type="button"
                 className={`flex items-center gap-1 rounded px-3 py-2 text-sm font-medium transition-colors hover:text-[#d67528ff] hover:bg-slate-50 ${
                   openIndex === index
-                    ? "text-white"
+                    ? "text-[#d67528ff] bg-slate-50"
                     : "text-slate-300 hover:text-[#d67528ff] hover:bg-slate-50"
                 }`}
               >
@@ -170,19 +170,24 @@ const NavigationBar: React.FC = () => {
         }`}
       >
         {openIndex !== null && (
-          <div className="h-40 px-6 py-6">
-            <ul className="flex h-full flex-wrap items-center gap-y-3 w-full">
-              {NAV_ITEMS[openIndex].items.map((subItem, index) => (
-                <li key={subItem.name}>
-                  <Link
-                    to={{ pathname: subItem.path }}
-                    className={`text-sm  h-90 text-[#d67528ff] border-l px-15 py-8 ${index === 0 ? "border-r" : ""} border-[#d67528ff]  transition-colors hover:text-slate-50 hover:bg-[#d67528ff]`}
-                  >
-                    {subItem.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="px-6 py-6">
+            <div className="flex flex-col items-start gap-3">
+              <span className="text-sm font-semibold text-[#d67528ff] border-b border-[#d67528ff] pb-2 w-full">
+                {NAV_ITEMS[openIndex].label}
+              </span>
+              <ul className="flex flex-col gap-y-1 w-full">
+                {NAV_ITEMS[openIndex].items.map((subItem) => (
+                  <li key={subItem.name}>
+                    <Link
+                      to={{ pathname: subItem.path }}
+                      className="block text-sm text-[#d67528ff] px-15 py-8 transition-colors hover:text-slate-50 hover:bg-[#d67528ff]"
+                    >
+                      {subItem.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         )}
       </div>
