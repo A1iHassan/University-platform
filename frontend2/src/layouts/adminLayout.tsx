@@ -46,21 +46,21 @@ const primaryTabsData: PrimaryTabItem[] = [
   },
   {
     id: 'tab-2',
-    label: 'Tab 2',
+    label: 'إدارة الطلاب',
     icon: FolderIcon,
     secondaryTabs: [
-      { id: 'tab-2-1', path: "", label: 'Tab 2.1', description: 'Active project repositories and media files', icon: FolderIcon },
+      { id: 'tab-2-1', path: "/dashboard/admins/students", label: 'الطلاب المسجلون', description: 'Active project repositories and media files', icon: FolderIcon },
       { id: 'tab-2-2', path: "", label: 'Tab 2.2', description: 'Document archives and exported reports', icon: DocumentTextIcon },
       { id: 'tab-2-3', path: "", label: 'Tab 2.3', description: 'Shared asset library and template files', icon: Square3Stack3DIcon },
     ]
   },
   {
     id: 'tab-3',
-    label: 'Tab 3',
+    label: 'إدارة النتائج',
     icon: UserGroupIcon,
     secondaryTabs: [
-      { id: 'tab-3-1', path: "", label: 'Tab 3.1', description: 'Team directory and active member accounts', icon: UserGroupIcon },
-      { id: 'tab-3-2', path: "", label: 'Tab 3.2', description: 'Role permissions and security credentials', icon: ShieldCheckIcon },
+      { id: 'tab-3-1', path: "/dashboard/admins/results", label: 'النتائج', description: 'Team directory and active member accounts', icon: UserGroupIcon },
+      { id: 'tab-3-2', path: "/dashboard/admins/results-entery", label: 'إدخال النتائج', description: 'Role permissions and security credentials', icon: ShieldCheckIcon },
       { id: 'tab-3-3', path: "", label: 'Tab 3.3', description: 'Team messaging and inbox communications', icon: InboxIcon },
     ]
   },

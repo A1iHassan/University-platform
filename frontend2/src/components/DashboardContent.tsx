@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 export type SecondaryTabItem = {
   id: string;
   label: string;
@@ -21,6 +23,12 @@ export const DashboardContent: React.FC<DashboardContentProps> = ({
   activePrimaryTab,
   activeSecondaryTab,
 }) => {
+	 const { i18n } = useTranslation();
+  	// Handle LTR/RTL document direction and language attribute based on the active locale
+	useEffect(() => {
+		document.dir = "ltr";
+		document.documentElement.lang = i18n.language;
+	}, [i18n, i18n.language]);
   return (
     <main className="flex-1 flex flex-col h-full bg-slate-950 text-slate-100 overflow-y-auto">
       <div className="flex-1 p-8 flex flex-col items-start justify-start max-w-7xl mx-auto w-full space-y-4">
