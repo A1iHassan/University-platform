@@ -9,6 +9,9 @@ import './i18n/config'
 import AboutPage from './pages/aboutPage'
 import PresidentPage from './pages/presidentPage'
 import RelationsPage from './pages/relationsPage'
+import LoginPage from './pages/applicationForm'
+import AdminDashboard from './layouts/adminLayout'
+import AdminsLoginPage from './pages/adminForm'
 
 const router = createBrowserRouter([
 	{
@@ -19,7 +22,8 @@ const router = createBrowserRouter([
 			{ path: "/president", element: <PresidentPage /> },
 			{ path: "/applications", element: <></> },
 			{ path: "/applications/details", element: <></> },
-			{ path: "/applications/apply", element: <></> },
+			{ path: "/applications/student-apply", element: <LoginPage /> },
+			{ path: "/applications/admins-apply", element: <AdminsLoginPage /> },
 			{ path: "/news", element: <></> },
 			{ path: "/contacts", element: <></> },
 			{ path: "/faculties", element: <></> },
@@ -32,12 +36,13 @@ const router = createBrowserRouter([
 		element: <></>,
 	},
 	{
-		path: "/dashboard/students",
+		path: "/dashboard/student",
 		element: <StudentsLayout />,
 		children: [],
 	},
 	{
-		element: <></>,
+		path: "/dashboard/admins",
+		element: <AdminDashboard />,
 		children: []
 	},
 ])

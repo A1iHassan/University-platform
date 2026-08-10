@@ -34,9 +34,9 @@ const NavigationBar: React.FC = () => {
       label: t("digital_services"),
       items: [
         { name: t("application_portal"), path: "/applications" },
-        { name: t("students_portal"), path: "/login/student" },
-        { name: t("teachers_portal"), path: "/login/teacher" },
-        { name: t("admins_portal"), path: "/login/admin" },
+        { name: t("students_portal"), path: "/applications/student-apply" },
+        { name: t("teachers_portal"), path: "/applications/apply" },
+        { name: t("admins_portal"), path: "/applications/admins-apply" },
         { name: t("e_library"), path: "/library" },
       ],
     },
@@ -67,7 +67,7 @@ const NavigationBar: React.FC = () => {
     {
       label: t("research_centers"),
       items: [
-        { name: t("center_1"), path: "" },
+        { name: t("center_1"), path: "https://csfs-strategy-future-sciences-231892899012.us-west1.run.app/" },
         { name: t("center_2"), path: "" },
         { name: t("center_3"), path: "" },
       ],
@@ -170,7 +170,7 @@ const NavigationBar: React.FC = () => {
         }`}
       >
         {openIndex !== null && (
-          <div className="h-40 px-6 py-6">
+          <div className="h-20 px-6">
             <ul className="flex h-full flex-wrap items-center gap-y-3 w-full">
               {NAV_ITEMS[openIndex].items.map((subItem, index) => (
                 <li key={subItem.name}>
