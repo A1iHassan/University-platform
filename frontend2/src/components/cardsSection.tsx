@@ -15,15 +15,15 @@ const CARDS: CardItem[] = [
 ];
 
   return (
-    <section className="h-[90svh] flex justify-center items-center">
-      <div className="flex w-full items-center justify-center gap-8 px-10 py-16">
+    <section className="h-[70svh] flex justify-center items-center">
+      <div className="flex w-full items-center justify-center items-center gap-15 px-10 py-16">
         {CARDS.map((card) => (
           <Link
             key={card.to}
             to={card.to}
-            className="flex flex-col w-1/4 h-[50svh] leading-loose rounded-none items-center justify-center bg-slate-900 text-lg text-white shadow-xl/30 transition-colors hover:bg-slate-800"
+            className='hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-10 shadow-xl/20 justify-between p-3 h-full'
           >
-            <h2 className="text-3xl">{card.label}</h2>
+            <h2 className="text-3xl font-bold">{card.label}</h2>
 	    <span className="text-lg">{card.content}</span>
           </Link>
         ))}
