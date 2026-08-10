@@ -1,8 +1,10 @@
 import React from 'react';
 import { DocumentDuplicateIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router';
 export type SecondaryTabItem = {
   id: string;
   label: string;
+  path: string;
   description?: string;
   icon?: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
 };
@@ -61,7 +63,8 @@ export const SecondarySidebar: React.FC<SecondarySidebarProps> = ({
           const isActive = activeSecondaryTabId === tab.id;
 
           return (
-            <button
+            <Link
+	      to={{pathname: tab.path}}
               key={tab.id}
               onClick={() => onSelectSecondaryTab(tab.id)}
               title={tab.label}
@@ -86,7 +89,7 @@ export const SecondarySidebar: React.FC<SecondarySidebarProps> = ({
                   </span>
                 )}
               </div>
-            </button>
+            </Link>
           );
         })}
       </nav>

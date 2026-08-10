@@ -21,6 +21,7 @@ import { Outlet } from 'react-router';
 export type SecondaryTabItem = {
   id: string;
   label: string;
+  path: string;
   description?: string;
   icon?: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
 };
@@ -34,13 +35,13 @@ export type PrimaryTabItem = {
 const primaryTabsData: PrimaryTabItem[] = [
   {
     id: 'tab-1',
-    label: 'Tab 1',
+    label: 'إدارة المواد',
     icon: Squares2X2Icon,
     secondaryTabs: [
-      { id: 'tab-1-1', label: 'Tab 1.1', description: 'Overview statistics and recent metrics', icon: Squares2X2Icon },
-      { id: 'tab-1-2', label: 'Tab 1.2', description: 'Analytics breakdown and performance logs', icon: ChartBarIcon },
-      { id: 'tab-1-3', label: 'Tab 1.3', description: 'System notification feed and user updates', icon: BellIcon },
-      { id: 'tab-1-4', label: 'Tab 1.4', description: 'Raw database records and storage details', icon: CircleStackIcon },
+      { id: 'tab-1-1', path: "/dashboard/admins/curriculums", label: 'كل المواد', description: 'بحث و مراجعة المواد المسجلة في قاعدة البيانات', icon: Squares2X2Icon },
+      { id: 'tab-1-2', path: "/dashboard/admins/curriculums-edit", label: 'تعديل المواد', description: 'إضافة ، حذف ، و تعديل المواد المسجلة في قاعدة البيانات و الجديدة', icon: ChartBarIcon },
+      { id: 'tab-1-3', path: "", label: 'Tab 1.3', description: 'System notification feed and user updates', icon: BellIcon },
+      { id: 'tab-1-4', path: "", label: 'Tab 1.4', description: 'Raw database records and storage details', icon: CircleStackIcon },
     ]
   },
   {
@@ -48,9 +49,9 @@ const primaryTabsData: PrimaryTabItem[] = [
     label: 'Tab 2',
     icon: FolderIcon,
     secondaryTabs: [
-      { id: 'tab-2-1', label: 'Tab 2.1', description: 'Active project repositories and media files', icon: FolderIcon },
-      { id: 'tab-2-2', label: 'Tab 2.2', description: 'Document archives and exported reports', icon: DocumentTextIcon },
-      { id: 'tab-2-3', label: 'Tab 2.3', description: 'Shared asset library and template files', icon: Square3Stack3DIcon },
+      { id: 'tab-2-1', path: "", label: 'Tab 2.1', description: 'Active project repositories and media files', icon: FolderIcon },
+      { id: 'tab-2-2', path: "", label: 'Tab 2.2', description: 'Document archives and exported reports', icon: DocumentTextIcon },
+      { id: 'tab-2-3', path: "", label: 'Tab 2.3', description: 'Shared asset library and template files', icon: Square3Stack3DIcon },
     ]
   },
   {
@@ -58,9 +59,9 @@ const primaryTabsData: PrimaryTabItem[] = [
     label: 'Tab 3',
     icon: UserGroupIcon,
     secondaryTabs: [
-      { id: 'tab-3-1', label: 'Tab 3.1', description: 'Team directory and active member accounts', icon: UserGroupIcon },
-      { id: 'tab-3-2', label: 'Tab 3.2', description: 'Role permissions and security credentials', icon: ShieldCheckIcon },
-      { id: 'tab-3-3', label: 'Tab 3.3', description: 'Team messaging and inbox communications', icon: InboxIcon },
+      { id: 'tab-3-1', path: "", label: 'Tab 3.1', description: 'Team directory and active member accounts', icon: UserGroupIcon },
+      { id: 'tab-3-2', path: "", label: 'Tab 3.2', description: 'Role permissions and security credentials', icon: ShieldCheckIcon },
+      { id: 'tab-3-3', path: "", label: 'Tab 3.3', description: 'Team messaging and inbox communications', icon: InboxIcon },
     ]
   },
   {
@@ -68,8 +69,8 @@ const primaryTabsData: PrimaryTabItem[] = [
     label: 'Tab 4',
     icon: ChartBarIcon,
     secondaryTabs: [
-      { id: 'tab-4-1', label: 'Tab 4.1', description: 'Revenue metrics and financial forecasting', icon: ChartBarIcon },
-      { id: 'tab-4-2', label: 'Tab 4.2', description: 'Custom query builder and dataset exports', icon: CircleStackIcon },
+      { id: 'tab-4-1', path: "", label: 'Tab 4.1', description: 'Revenue metrics and financial forecasting', icon: ChartBarIcon },
+      { id: 'tab-4-2', path: "", label: 'Tab 4.2', description: 'Custom query builder and dataset exports', icon: CircleStackIcon },
     ]
   },
   {
@@ -77,8 +78,8 @@ const primaryTabsData: PrimaryTabItem[] = [
     label: 'Tab 5',
     icon: Cog6ToothIcon,
     secondaryTabs: [
-      { id: 'tab-5-1', label: 'Tab 5.1', description: 'Global application preferences and defaults', icon: Cog6ToothIcon },
-      { id: 'tab-5-2', label: 'Tab 5.2', description: 'Advanced UI configurations and layout toggles', icon: AdjustmentsHorizontalIcon },
+      { id: 'tab-5-1', path: "", label: 'Tab 5.1', description: 'Global application preferences and defaults', icon: Cog6ToothIcon },
+      { id: 'tab-5-2', path: "", label: 'Tab 5.2', description: 'Advanced UI configurations and layout toggles', icon: AdjustmentsHorizontalIcon },
     ]
   }
 ];

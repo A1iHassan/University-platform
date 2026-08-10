@@ -3,6 +3,7 @@ import { CommandLineIcon } from '@heroicons/react/24/outline';
 export type SecondaryTabItem = {
   id: string;
   label: string;
+  path: string;
   description?: string;
   icon?: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
 };

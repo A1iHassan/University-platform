@@ -12,6 +12,8 @@ import RelationsPage from './pages/relationsPage'
 import LoginPage from './pages/applicationForm'
 import AdminDashboard from './layouts/adminLayout'
 import AdminsLoginPage from './pages/adminForm'
+import CurriculumsPage from './components/teacherDashboar/curriculumsPage'
+import NewCurriculum from './components/teacherDashboar/newCurriculum'
 
 const router = createBrowserRouter([
 	{
@@ -43,7 +45,10 @@ const router = createBrowserRouter([
 	{
 		path: "/dashboard/admins",
 		element: <AdminDashboard />,
-		children: []
+		children: [
+			{ path: "/dashboard/admins/curriculums", element: <CurriculumsPage /> },
+			{ path: "/dashboard/admins/curriculums-edit", element: <NewCurriculum /> },
+		]
 	},
 ])
 
