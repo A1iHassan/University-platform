@@ -125,20 +125,20 @@ const NavigationBar: React.FC = () => {
 
       {/* Full-width dropdown panel, spans the entire nav bar */}
       <div
-        className={`absolute z-10 left-0 top-full w-full overflow-hidden border-b border-slate-800 bg-slate-900 shadow-xl transition-all duration-200 ease-out ${
+        className={`flex justify-center absolute z-10 left-0 top-full w-full overflow-hidden border-b border-slate-800 bg-slate-900 shadow-xl transition-all duration-200 ease-out ${
           openIndex !== null
             ? "max-h-96 opacity-100"
             : "pointer-events-none max-h-0 opacity-0"
         }`}
       >
         {openIndex !== null && (
-          <div className="mx-auto max-w-7xl px-6 py-6">
-            <ul className="flex flex-wrap gap-x-10 gap-y-3">
-              {NAV_ITEMS[openIndex].items.map((subItem) => (
+          <div className="h-40 px-6 py-6">
+            <ul className="flex h-full flex-wrap items-center gap-y-3 w-full">
+              {NAV_ITEMS[openIndex].items.map((subItem, index) => (
                 <li key={subItem.name}>
                   <Link
                     to={{ pathname: subItem.path }}
-                    className="text-sm text-slate-300 transition-colors hover:text-indigo-400"
+                    className={`text-sm  h-90 text-slate-300 border-l px-15 py-8 ${index === 0 ? "border-r" : ""} border-white/40  transition-colors hover:text-indigo-400 hover:bg-white/5`}
                   >
                     {subItem.name}
                   </Link>
