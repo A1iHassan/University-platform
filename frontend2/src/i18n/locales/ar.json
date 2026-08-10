@@ -1,6 +1,6 @@
 {
 	"language": "اللغة",
-	"language_ar": "العربية"
+	"language_ar": "العربية",
 	"about_us": "عن الجامعة",
 	"deanships": "العمادات",
 	"main": "الرئيسية",
@@ -45,7 +45,7 @@
 	"more_admission": "تعرف على متطلبات التقديم",
 	"log_in": "تسجيل دخول",
 	"faculties_title": "الكليات",
-	"the Student": "الطالب"
+	"the Student": "الطالب",
 	"the teacher": "الأستاذ",
 	"": "",
 	"": "",
