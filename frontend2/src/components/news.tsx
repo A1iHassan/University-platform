@@ -15,7 +15,7 @@ const News = () => {
           <div className="overflow-hidden h-full relative z-10">
             <img src="/newest.png" alt="Latest News" className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500" />
             {/* Dark overlay on the video */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/40 to-slate-900/30 transition-opacity duration-500 group-hover:bg-slate-900/50 transition-color duration-200" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/60 to-slate-900/40 transition-opacity duration-500 group-hover:bg-slate-900/50 transition-color duration-200" />
           </div>
           <div className="p-6 z-20 absolute bottom-0 w-full flex justify-between items-end">
             <div className="text-right">

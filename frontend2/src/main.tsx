@@ -6,14 +6,16 @@ import MainLayout from './layouts/mainLayout'
 import HomePage from './pages/homePage'
 import StudentsLayout from './layouts/studentsLayout'
 import './i18n/config'
+import AboutPage from './pages/aboutPage'
+import PresidentPage from './pages/presidentPage'
 
 const router = createBrowserRouter([
 	{
 		element: <MainLayout />,
 		children: [
 			{ path: "/", element: <HomePage /> },
-			{ path: "/aboutus", element: <></> },
-			{ path: "/president", element: <></> },
+			{ path: "/aboutus", element: <AboutPage /> },
+			{ path: "/president", element: <PresidentPage /> },
 			{ path: "/applications", element: <></> },
 			{ path: "/applications/details", element: <></> },
 			{ path: "/applications/apply", element: <></> },
