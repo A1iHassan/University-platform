@@ -43,10 +43,12 @@ const HeroSection = () => {
 
       {/* Content grid */}
       <div className="relative z-10 grid h-full w-full grid-cols-2 grid-rows-2 gap-6 px-10 py-10 md:px-16 md:py-14">
-        <p className="col-start-1 row-span-2 flex items-center text-3xl font-semibold leading-snug text-white md:text-5xl">
-	  <img src="" alt="logo"/>
-	  <h1 className="">{t('uni_name')}</h1>
-	  <span className="">{t('uni_motto')}</span>
+        <p className="col-start-1 row-span-2 flex items-center gap-5 text-3xl font-semibold leading-snug text-white md:text-5xl">
+	  <img src="/logo.png" alt="logo" width={256} height={256}/>
+	  <div className="flex flex-col gap-5 items-start">
+	    <h1 className="text-6xl">{t('uni_name')}</h1>
+	    <span className="text-sm font-light">{t('uni_motto')}</span>
+	  </div>
         </p>
 
         <div className="col-start-2 row-start-2 flex items-end justify-end gap-4">

@@ -64,7 +64,7 @@ const NavigationBar: React.FC = () => {
 
   return (
     <nav
-      className="sticky top-0 z-20 w-full bg-slate-950 border-b border-slate-800"
+      className="sticky top-0 z-20 w-full bg-[#d67528ff]"
       onMouseLeave={() => setOpenIndex(null)}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
@@ -125,7 +125,7 @@ const NavigationBar: React.FC = () => {
 
       {/* Full-width dropdown panel, spans the entire nav bar */}
       <div
-        className={`flex justify-center absolute z-10 left-0 top-full w-full overflow-hidden border-b border-slate-800 bg-slate-900 shadow-xl transition-all duration-200 ease-out ${
+        className={`flex justify-center absolute z-10 left-0 top-full w-full overflow-hidden bg-slate-50 shadow-xl transition-all duration-200 ease-out ${
           openIndex !== null
             ? "max-h-96 opacity-100"
             : "pointer-events-none max-h-0 opacity-0"
@@ -138,7 +138,7 @@ const NavigationBar: React.FC = () => {
                 <li key={subItem.name}>
                   <Link
                     to={{ pathname: subItem.path }}
-                    className={`text-sm  h-90 text-slate-300 border-l px-15 py-8 ${index === 0 ? "border-r" : ""} border-white/40  transition-colors hover:text-indigo-400 hover:bg-white/5`}
+                    className={`text-sm  h-90 text-[#d67528ff] border-l px-15 py-8 ${index === 0 ? "border-r" : ""} border-[#d67528ff]  transition-colors hover:text-slate-50 hover:bg-[#d67528ff]`}
                   >
                     {subItem.name}
                   </Link>
