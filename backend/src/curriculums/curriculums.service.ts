@@ -7,6 +7,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import type { CreateCurriculumDto } from './dto/create-curriculum.dto';
+import type { UpdateCurriculumDto } from './dto/update-curriculum.dto';
 import type { Db } from 'src/db/db.module';
 import { DRIZZLE } from 'src/db/db.module';
 import { curriculums } from 'src/db/schema';
@@ -69,5 +70,28 @@ export class CurriculumsService {
       throw new InternalServerErrorException('cant delete curriculum');
     }
   }
-}
 
+  async update(id: number, updateCurriculumDto: UpdateCurriculumDto) {
+    try {
+      const [updated] = await this.db
+        .update(curriculums)
+        .set({ ...updateCurriculumDto, updated_at: new Date() })
+        .where(eq(curriculums.id, id))
+        .returning();
+      if (!updated) throw new NotFoundException('curriculum not found');
+      return { status: 'success', data: updated };
+    } catch (error) {
+      if (error instanceof NotFoundException) throw error;
+      this.logger.error('error updating a curriculum: ', error);
+      throw new InternalServerErrorException('cant update curriculum');
+    }
+  }
+
+  async verify_curriculum_exist(curriculum_id: number): Promise<boolean> {
+    const curriculum = await this.db.query.curriculums.findFirst({
+      where: eq(curriculums.id, curriculum_id),
+    });
+
+    return curriculum ? true : false;
+  }
+}
