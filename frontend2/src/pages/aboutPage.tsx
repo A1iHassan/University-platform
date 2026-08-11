@@ -25,10 +25,6 @@ const AboutPage = () => {
 
           <div className="mt-5 w-24 h-1 bg-[#d67528] rounded-full mx-auto" />
 
-          <p className="mt-6 max-w-2xl mx-auto text-slate-600 text-lg leading-relaxed">
-            Learn more about our mission, vision, and goals as we strive to
-            deliver meaningful experiences and lasting value.
-          </p>
         </div>
 
         {/* Cards */}
@@ -41,13 +37,12 @@ const AboutPage = () => {
               </div>
 
               <h2 className="text-3xl font-bold text-slate-900">
-                Our Message
+	      {t('message')}
               </h2>
             </div>
 
             <p className="text-slate-600 leading-8 md:w-3/4">
-              Content for the message goes here. The paragraph wrapper handles
-              the 75% width constraint.
+	    {t('message_text')}
             </p>
           </div>
 
@@ -59,13 +54,12 @@ const AboutPage = () => {
               </div>
 
               <h2 className="text-3xl font-bold text-slate-900">
-                Our Vision
+	      {t('Vision')}
               </h2>
             </div>
 
             <p className="text-slate-600 leading-8 md:w-3/4">
-              Content for the vision goes here. The paragraph wrapper handles
-              the 75% width constraint.
+	    {t('Vision_text')}
             </p>
           </div>
 
@@ -77,14 +71,30 @@ const AboutPage = () => {
               </div>
 
               <h2 className="text-3xl font-bold text-slate-900">
-                Our Goals
+	      {t('Goals')}
               </h2>
             </div>
 
-            <p className="text-slate-600 leading-8 md:w-3/4">
-              Content for the goals goes here. The paragraph wrapper handles the
-              75% width constraint.
+            <p className="text-slate-600 text-xl leading-8 md:w-3/4">
+	    {t('Goals_text_title')}
             </p>
+	    <ul className="text-slate-600 text-lg flex flex-col gap-3 mt-10">
+	      <li className="">
+	        {t('Goals_point_1')}
+	      </li>
+	      <li className="">
+	        {t('Goals_point_2')}
+	      </li>
+	      <li className="">
+	        {t('Goals_point_3')}
+	      </li>
+	      <li className="">
+	        {t('Goals_point_4')}
+	      </li>
+	      <li className="">
+	        {t('Goals_point_5')}
+	      </li>
+	    </ul>
           </div>
         </div>
       </div>
