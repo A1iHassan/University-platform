@@ -3,6 +3,11 @@ import { timestamp } from 'drizzle-orm/pg-core';
 import { integer } from 'drizzle-orm/pg-core';
 import { pgEnum, pgTable, text, serial } from 'drizzle-orm/pg-core';
 
+export const status_enum = pgEnum('status', [
+  'pending',
+  'accepted',
+  'rejected',
+]);
 export const letter_grade_enum = pgEnum('letter_grade', [
   'A+',
   'A',
@@ -31,7 +36,9 @@ export const users = pgTable('users', {
   password: text('password').notNull(),
   role: role_enum('role').notNull().default('student'),
   created_at: timestamp({ withTimezone: true }).defaultNow(),
-  updated_at: timestamp({ withTimezone: true }).defaultNow(),
+  updated_at: timestamp({ withTimezone: true })
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
 
 export const curriculums = pgTable('curriculums', {
@@ -39,7 +46,9 @@ export const curriculums = pgTable('curriculums', {
   name: text().notNull(),
   year: text().notNull(),
   created_at: timestamp({ withTimezone: true }).defaultNow(),
-  updated_at: timestamp({ withTimezone: true }).defaultNow(),
+  updated_at: timestamp({ withTimezone: true })
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
 
 export const results = pgTable('results', {
@@ -53,7 +62,9 @@ export const results = pgTable('results', {
   grade: text(),
   letter_grade: letter_grade_enum(),
   created_at: timestamp({ withTimezone: true }).defaultNow(),
-  updated_at: timestamp({ withTimezone: true }).defaultNow(),
+  updated_at: timestamp({ withTimezone: true })
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
 
 export const students = pgTable('students', {
@@ -66,7 +77,25 @@ export const students = pgTable('students', {
   national_id: integer(),
   year: text(),
   created_at: timestamp({ withTimezone: true }).defaultNow(),
-  updated_at: timestamp({ withTimezone: true }).defaultNow(),
+  updated_at: timestamp({ withTimezone: true })
+    .defaultNow()
+    .$onUpdate(() => new Date()),
+});
+
+export const applications = pgTable('applications', {
+  id: serial('id').primaryKey(),
+  name: text().notNull(),
+  age: integer().notNull(),
+  blood_type: blood_type_enum(),
+  school_degree: text(),
+  certificate: text(),
+  national_id: integer(),
+  year: text(),
+  status: status_enum().default('pending'),
+  created_at: timestamp({ withTimezone: true }).defaultNow(),
+  updated_at: timestamp({ withTimezone: true })
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
 
 // ================================= relations ===================================

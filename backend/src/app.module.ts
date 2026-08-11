@@ -8,6 +8,7 @@ import { DbModule } from './db/db.module';
 import { StudentsModule } from './students/students.module';
 import { CurriculumsModule } from './curriculums/curriculums.module';
 import { ResultsModule } from './results/results.module';
+import { ApplicationsModule } from './applications/applications.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ResultsModule } from './results/results.module';
     StudentsModule,
     CurriculumsModule,
     ResultsModule,
+    ApplicationsModule,
   ],
   controllers: [AppController],
   providers: [
