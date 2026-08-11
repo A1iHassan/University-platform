@@ -10,7 +10,7 @@ const PresidentSection = () => {
   }, [i18n, i18n.language]);
 
   return (
-    <section className="bg-[#111111] bg-opacity-95 py-24 px-6 border-t-[3px] border-[#d67528]">
+    <section className="bg-[#111111] bg-opacity-95 py-24 px-6 border-y-[3px] border-[#d67528]">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
         
         {/* Text Content Block */}
@@ -29,15 +29,15 @@ const PresidentSection = () => {
         </div>
 
         {/* Profile Image Card */}
-        <div className="bg-[#e2e1e1] rounded-2xl p-4 shadow-2xl shrink-0 w-full md:w-[320px]">
+        <div className="p-4 shadow-2xl shrink-0 w-full md:w-[320px]">
           <img
             src="/president.png"
             alt="مدير الجامعة"
             className="w-full h-auto  object-cover mb-5"
           />
-          <div className="text-center text-gray-900 pb-3">
+          <div className="text-center text-slate-50 pb-3">
             <h2 className="text-lg font-bold mb-2">مدير الجامعة</h2>
-            <p className="text-sm font-medium text-gray-600">
+            <p className="text-sm font-medium text-slate-100/80">
               بروفيسور/ الهادي آدم محمد إبراهيم
             </p>
           </div>

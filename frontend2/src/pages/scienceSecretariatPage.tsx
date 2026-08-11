@@ -84,8 +84,8 @@ const ScienceSecretariatPage = () => {
 
         {/* Vision & Mission */}
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <span className="mb-3 inline-block rounded-md bg-[#d67528]/10 px-2 py-0.5 text-[11px] font-bold text-[#d67528]">
+          <div className="rounded border border-slate-200 bg-white p-6 shadow-sm">
+            <span className="mb-3 inline-block rounded bg-[#d67528]/10 px-2 py-0.5 text-[11px] font-bold text-[#d67528]">
               الرؤية
             </span>
             <p className="text-[15px] leading-8 text-slate-700">
@@ -95,8 +95,8 @@ const ScienceSecretariatPage = () => {
               وتأكيدها.
             </p>
           </div>
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <span className="mb-3 inline-block rounded-md bg-[#d67528]/10 px-2 py-0.5 text-[11px] font-bold text-[#d67528]">
+          <div className="rounded border border-slate-200 bg-white p-6 shadow-sm">
+            <span className="mb-3 inline-block rounded bg-[#d67528]/10 px-2 py-0.5 text-[11px] font-bold text-[#d67528]">
               الرسالة
             </span>
             <p className="text-[15px] leading-8 text-slate-700">
@@ -106,6 +106,61 @@ const ScienceSecretariatPage = () => {
             </p>
           </div>
         </div>
+	{/* Councils where the Amin is rapporteur */}
+        <div className="mt-12">
+          <h2 className="mb-4 text-lg font-bold text-slate-700">
+            المجالس واللجان التي يتولى أمين الشؤون العلمية مهام مقررها
+          </h2>
+          <div className="rounded border border-slate-200 bg-white p-6 shadow-sm">
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {councils.map((c, idx) => (
+                <li key={idx} className="flex items-center gap-3">
+                  <span className="h-1.5 w-1.5 flex-none rounded-full bg-[#d67528]" />
+                  <span className="text-sm text-slate-700">{c}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Administrative structure */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <div>
+            <h2 className="mb-4 text-lg font-bold text-slate-700">
+              الهياكل اإلدارية
+            </h2>
+            <div className="rounded border border-slate-200 bg-white p-6 shadow-sm">
+              <ul className="space-y-3">
+                {structureUnits.map((unit, idx) => (
+                  <li key={idx} className="flex items-center gap-3">
+                    <span className="flex h-6 w-6 flex-none items-center justify-center rounded bg-[#d67528]/10 text-[11px] font-bold text-[#d67528]">
+                      {idx + 1}
+                    </span>
+                    <span className="text-sm text-slate-700">{unit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="mb-4 text-lg font-bold text-slate-700">
+              التنظيم اإلداري لألمانة
+            </h2>
+            <div className="rounded border border-slate-200 bg-white p-6 shadow-sm">
+              <ol className="space-y-3">
+                {orgChain.map((role, idx) => (
+                  <li key={idx} className="flex items-center gap-3">
+                    <span className="text-xs font-bold text-[#d67528]">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-sm text-slate-700">{role}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </div> 
 
         {/* Goals */}
         <div className="mt-10">
@@ -114,7 +169,7 @@ const ScienceSecretariatPage = () => {
             {goals.map((goal, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
+                className="flex items-start gap-3 rounded border border-slate-200 bg-white p-4 shadow-sm"
               >
                 <span className="mt-1 h-1.5 w-1.5 flex-none rounded-full bg-[#d67528]" />
                 <p className="text-sm leading-7 text-slate-700">{goal}</p>
@@ -156,9 +211,9 @@ const ScienceSecretariatPage = () => {
                   <span className="relative z-10 mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full border-2 border-[#d67528] bg-white">
                     <span className="h-2 w-2 rounded-full bg-[#d67528]" />
                   </span>
-                  <div className="flex-1 rounded-xl border border-slate-200 bg-white px-5 py-4 shadow-sm transition-colors hover:border-[#d67528]/40">
+                  <div className="flex-1 rounded border border-slate-200 bg-white px-5 py-4 shadow-sm transition-colors hover:border-[#d67528]/40">
                     <div className="mb-1.5">
-                      <span className="rounded-md bg-[#d67528]/10 px-2 py-0.5 text-[11px] font-bold text-[#d67528]">
+                      <span className="rounded bg-[#d67528]/10 px-2 py-0.5 text-[11px] font-bold text-[#d67528]">
                         مادة {item.id}
                       </span>
                     </div>
@@ -172,61 +227,7 @@ const ScienceSecretariatPage = () => {
           </div>
         </div>
 
-        {/* Councils where the Amin is rapporteur */}
-        <div className="mt-12">
-          <h2 className="mb-4 text-lg font-bold text-slate-700">
-            المجالس واللجان التي يتولى أمين الشؤون العلمية مهام مقررها
-          </h2>
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <ul className="grid gap-3 sm:grid-cols-2">
-              {councils.map((c, idx) => (
-                <li key={idx} className="flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 flex-none rounded-full bg-[#d67528]" />
-                  <span className="text-sm text-slate-700">{c}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Administrative structure */}
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          <div>
-            <h2 className="mb-4 text-lg font-bold text-slate-700">
-              الهياكل اإلدارية
-            </h2>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <ul className="space-y-3">
-                {structureUnits.map((unit, idx) => (
-                  <li key={idx} className="flex items-center gap-3">
-                    <span className="flex h-6 w-6 flex-none items-center justify-center rounded-md bg-[#d67528]/10 text-[11px] font-bold text-[#d67528]">
-                      {idx + 1}
-                    </span>
-                    <span className="text-sm text-slate-700">{unit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div>
-            <h2 className="mb-4 text-lg font-bold text-slate-700">
-              التنظيم اإلداري لألمانة
-            </h2>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <ol className="space-y-3">
-                {orgChain.map((role, idx) => (
-                  <li key={idx} className="flex items-center gap-3">
-                    <span className="text-xs font-bold text-[#d67528]">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-sm text-slate-700">{role}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </div>
+        
 
         {/* Footer / source */}
         <div className="mt-12 flex items-center gap-3 border-t border-slate-200 pt-6">

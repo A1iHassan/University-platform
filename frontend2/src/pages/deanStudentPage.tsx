@@ -65,7 +65,7 @@ const DeanStudentPage = () => {
         </p>
 
         {/* Authority clause */}
-        <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
+        <div className="mt-8 rounded border border-slate-200 bg-white p-6 shadow-sm sm:p-7">
           <p className="text-[15px] leading-8 text-slate-700">
             باإلضافة للسلطات والتخصصات الواردة في قانون الجامعة التكنولوجية
             المؤقت لسنة 2022م والنظم واللوائح الصادرة بموجبه، يكون لعميد
@@ -84,9 +84,9 @@ const DeanStudentPage = () => {
                   <span className="h-2 w-2 rounded-full bg-[#d67528]" />
                 </span>
 
-                <div className="flex-1 rounded-xl border border-slate-200 bg-white px-5 py-4 shadow-sm transition-colors hover:border-[#d67528]/40">
+                <div className="flex-1 rounded border border-slate-200 bg-white px-5 py-4 shadow-sm transition-colors hover:border-[#d67528]/40">
                   <div className="mb-1.5 flex items-center gap-2">
-                    <span className="rounded-md bg-[#d67528]/10 px-2 py-0.5 text-[11px] font-bold text-[#d67528]">
+                    <span className="rounded bg-[#d67528]/10 px-2 py-0.5 text-[11px] font-bold text-[#d67528]">
                       مادة {item.id}
                     </span>
                   </div>
