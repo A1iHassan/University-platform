@@ -1,7 +1,7 @@
 const Admission = () => {
   return (
     <main className="w-full flex flex-col justify-between" dir="rtl">
-      <h1 className="mt-40 mr-15 text-4xl">بوابة التسجيل لعام 2026</h1>
+      <h1 className="mt-20 mr-15 text-4xl">بوابة التسجيل لعام 2026</h1>
       <span className="text-sm font-light text-slate-400 mr-15 mt-3 mb-15">
         تأكد من اكتمال جميع الملفات المرفقة مع التقديم ، و من ضحتها. سيصلك بريد إلكتروني لمتابعة مراحل التقديم
       </span>
