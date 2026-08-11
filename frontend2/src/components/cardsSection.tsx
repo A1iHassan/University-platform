@@ -11,7 +11,6 @@ const CardsSection = () => {
   const { t } = useTranslation();
   const CARDS: CardItem[] = [
     { label: t('our_message'), content: t('our_message_content'), to: "/aboutus" },
-    { label: t('president'), content: t('president_content'), to: "/president" },
     { label: t('relations'), content: t('relations_content'), to: "/relations" },
   ];
 
@@ -25,12 +24,12 @@ const CardsSection = () => {
         <div className="absolute left-1/2 top-0 h-6 w-[85%] origin-top-left rotate-[135deg] translate-x-220 bg-[#d67528]" />
       </div>
 
-      <div className="relative z-10 flex w-full items-center justify-center items-center gap-15 px-10 py-16">
+      <div className="relative z-10 flex w-full items-center justify-center items-center gap-26 px-10 py-16">
         {CARDS.map((card) => (
           <Link
             key={card.to}
             to={card.to}
-            className='hover:bg-slate-50 hover:text-[#d67528ff] transition-all duration-200 flex flex-col items-center max-w-1/5 bg-[#d67528ff] text-slate-50 p-10 shadow-xl/20 justify-between p-3 h-full'
+            className='hover:bg-slate-50 hover:text-[#d67528ff] h-90 transition-all duration-200 flex flex-col items-center max-w-1/4 bg-[#d67528ff] text-slate-50 p-10 shadow-xl/20 justify-around p-3'
           >
             <h2 className="text-3xl font-bold">{card.label}</h2>
             <span className="text-lg">{card.content}</span>

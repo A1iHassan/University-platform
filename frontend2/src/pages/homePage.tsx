@@ -5,6 +5,8 @@ import Contacts from "../components/contacts";
 import Faculties from "../components/faculties";
 import HeroSection from "../components/heroSection";
 import News from "../components/news";
+import StatuteByNumbersSection from "../components/statistics";
+import PresidentSection from "../components/presidentComponent";
 
 const HomePage = () => {
 	const { i18n } = useTranslation();
@@ -17,8 +19,10 @@ const HomePage = () => {
 	return (
 		<section className="">
 		  <HeroSection />
+		  <PresidentSection />
 		  <CardsSection />
 		  <Faculties />
+		  <StatuteByNumbersSection />
 		  <News />
 		  <Contacts />
 		</section>

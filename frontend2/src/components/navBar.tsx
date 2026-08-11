@@ -58,10 +58,13 @@ const NavigationBar: React.FC = () => {
     {
       label: t("faculties"),
       items: [
-        { name: "Help Center", path: "" },
-        { name: "Contact Support", path: "" },
-        { name: "System Status", path: "" },
-        { name: "Report a Bug", path: "" },
+        { name: t('faculty_engineering'), path: "" },
+        { name: t('faculty_info_sys'), path: "" },
+        { name: t('faculty_nurse'), path: "" },
+        { name: t('faculty_law'), path: "" },
+        { name: t('faculty_commerce'), path: "" },
+        { name: t('faculty_arch'), path: "" },
+        { name: t('faculty_higher_studies'), path: "" },
       ],
     },
     {
