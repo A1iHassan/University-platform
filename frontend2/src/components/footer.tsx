@@ -1,4 +1,5 @@
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router";
 
 const Footer = () => {
       return <footer className="border-t border-slate-200 bg-slate-900 px-6 py-14 text-slate-300">
@@ -20,16 +21,16 @@ const Footer = () => {
         <div className="mx-auto mt-10 grid max-w-6xl gap-8 border-t border-slate-800 pt-10 md:grid-cols-3">
           {/* Quick links - Column 1 */}
           <ul className="flex flex-col gap-3">
-            <li><a href="#link1" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">رابط سريع 1</a></li>
-            <li><a href="#link2" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">رابط سريع 2</a></li>
-            <li><a href="#link3" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">رابط سريع 3</a></li>
+            <li><Link to={{pathname: "/deanship/students"}} className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">عمادة شؤون الطلاب</Link></li>
+            <li><Link to={{pathname: "/secretariats/science"}} className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">امانة الشؤون العلمية</Link></li>
+            <li><a href="#president-word" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">كلمة رئيس الجامعة</a></li>
           </ul>
           
           {/* Quick links - Column 2 */}
           <ul className="flex flex-col gap-3">
-            <li><a href="#link4" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">رابط سريع 4</a></li>
-            <li><a href="#link5" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">رابط سريع 5</a></li>
-            <li><a href="#link6" className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">رابط سريع 6</a></li>
+            <li><Link to={{pathname: "/applications/student-apply"}} className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">بوابة الطلاب</Link></li>
+            <li><Link to={{}} className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">بوابة المدرسين</Link></li>
+            <li><Link to={{pathname: "/applications/admins-apply"}} className="text-sm text-slate-400 transition-colors duration-200 hover:text-white">بوابة الإداريين</Link></li>
           </ul>
         
           <div>
