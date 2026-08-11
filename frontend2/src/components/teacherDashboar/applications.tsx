@@ -16,10 +16,17 @@ interface Application {
 
 type FetchStatus = "idle" | "loading" | "success" | "error";
 
+// Adjust these to match your backend's status_enum.enumValues exactly if they differ
+const STATUS = {
+  PENDING: "pending",
+  ACCEPTED: "accepted",
+  REJECTED: "rejected",
+} as const;
+
 const STATUS_STYLES: Record<string, string> = {
-  pending: "bg-amber-100 text-amber-700",
-  accepted: "bg-emerald-100 text-emerald-700",
-  rejected: "bg-red-100 text-red-700",
+  [STATUS.PENDING]: "bg-amber-100 text-amber-700",
+  [STATUS.ACCEPTED]: "bg-emerald-100 text-emerald-700",
+  [STATUS.REJECTED]: "bg-red-100 text-red-700",
 };
 
 const statusStyle = (status: string) =>
@@ -33,6 +40,9 @@ const AdminApplications = () => {
   const [fetchStatus, setFetchStatus] = useState<FetchStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [expandedId, setExpandedId] = useState<number | null>(null);
+  // Tracks which application id is currently being patched, and any per-row error
+  const [updatingId, setUpdatingId] = useState<number | null>(null);
+  const [updateErrors, setUpdateErrors] = useState<Record<number, string>>({});
 
   const loadApplications = async () => {
     setFetchStatus("loading");
@@ -59,6 +69,51 @@ const AdminApplications = () => {
 
   const toggleRow = (id: number) => {
     setExpandedId((prev) => (prev === id ? null : id));
+  };
+
+  const updateStatus = async (id: number, status: string) => {
+    setUpdatingId(id);
+    setUpdateErrors((prev) => {
+      const next = { ...prev };
+      delete next[id];
+      return next;
+    });
+
+    try {
+      const response = await fetch(`http://localhost:3000/applications/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ status }),
+      });
+
+      if (!response.ok) {
+        let message = `فشل تحديث الحالة (رمز الحالة ${response.status})`;
+        try {
+          const errorBody = await response.json();
+          if (errorBody?.message) {
+            message = Array.isArray(errorBody.message)
+              ? errorBody.message.join("، ")
+              : errorBody.message;
+          }
+        } catch {
+          // no JSON body; keep default message
+        }
+        throw new Error(message);
+      }
+
+      // Reflect the change locally instead of refetching the whole list
+      setApplications((prev) =>
+        prev.map((app) => (app.id === id ? { ...app, status } : app))
+      );
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "حدث خطأ أثناء تحديث الحالة";
+      setUpdateErrors((prev) => ({ ...prev, [id]: message }));
+    } finally {
+      setUpdatingId(null);
+    }
   };
 
   return (
@@ -192,6 +247,35 @@ const AdminApplications = () => {
                                 </p>
                               </div>
                             )}
+                          </div>
+
+                          {updateErrors[app.id] && (
+                            <p className="text-sm text-red-600 mt-4">{updateErrors[app.id]}</p>
+                          )}
+
+                          <div className="flex items-center gap-3 mt-5">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                updateStatus(app.id, STATUS.ACCEPTED);
+                              }}
+                              disabled={updatingId === app.id || app.status === STATUS.ACCEPTED}
+                              className="py-2 px-6 rounded bg-emerald-600 text-white text-sm font-medium hover:bg-emerald-700 transition-colors duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              {updatingId === app.id ? "جاري التنفيذ..." : "قبول"}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                updateStatus(app.id, STATUS.REJECTED);
+                              }}
+                              disabled={updatingId === app.id || app.status === STATUS.REJECTED}
+                              className="py-2 px-6 rounded bg-red-600 text-white text-sm font-medium hover:bg-red-700 transition-colors duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              {updatingId === app.id ? "جاري التنفيذ..." : "رفض"}
+                            </button>
                           </div>
                         </td>
                       </tr>
