@@ -17,6 +17,9 @@ import NewCurriculum from './components/teacherDashboar/newCurriculum'
 import AdminStudents from './components/teacherDashboar/adminStudents'
 import AdminsResultsEntery from './components/teacherDashboar/adminsResultsEntery'
 import AdminsResults from './components/teacherDashboar/adminsResults'
+import DeanStudentPage from './pages/deanStudentPage'
+import ScienceSecretariatPage from './pages/scienceSecretariatPage'
+import Admission from './pages/admissionsPage'
 
 const router = createBrowserRouter([
 	{
@@ -25,11 +28,12 @@ const router = createBrowserRouter([
 			{ path: "/", element: <HomePage /> },
 			{ path: "/aboutus", element: <AboutPage /> },
 			{ path: "/president", element: <PresidentPage /> },
-			{ path: "/applications", element: <></> },
-			{ path: "/applications/details", element: <></> },
 			{ path: "/applications/student-apply", element: <LoginPage /> },
 			{ path: "/applications/admins-apply", element: <AdminsLoginPage /> },
 			{ path: "/news", element: <></> },
+			{ path: "/deanship/students", element: <DeanStudentPage /> },
+			{ path: "/secretariat/science", element: <ScienceSecretariatPage /> },
+			{ path: "/new-admissions", element: <Admission /> },
 			{ path: "/contacts", element: <></> },
 			{ path: "/faculties", element: <></> },
 			{ path: "/library", element: <></> },
