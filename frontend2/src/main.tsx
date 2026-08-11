@@ -19,6 +19,7 @@ import AdminsResultsEntery from './components/teacherDashboar/adminsResultsEnter
 import AdminsResults from './components/teacherDashboar/adminsResults'
 import DeanStudentPage from './pages/deanStudentPage'
 import ScienceSecretariatPage from './pages/scienceSecretariatPage'
+import Admission from './pages/admissionsPage'
 
 const router = createBrowserRouter([
 	{
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
 			{ path: "/news", element: <></> },
 			{ path: "/deanship/students", element: <DeanStudentPage /> },
 			{ path: "/secretariat/science", element: <ScienceSecretariatPage /> },
+			{ path: "/new-admissions", element: <Admission /> },
 			{ path: "/contacts", element: <></> },
 			{ path: "/faculties", element: <></> },
 			{ path: "/library", element: <></> },

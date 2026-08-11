@@ -34,7 +34,7 @@ const NavigationBar: React.FC = () => {
     {
       label: t("digital_services"),
       items: [
-        { name: t("application_portal"), path: "/applications" },
+        { name: t("application_portal"), path: "/new-admissions" },
         { name: t("students_portal"), path: "/applications/student-apply" },
         { name: t("teachers_portal"), path: "/applications/apply" },
         { name: t("admins_portal"), path: "/applications/admins-apply" },
