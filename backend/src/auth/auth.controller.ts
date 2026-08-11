@@ -13,12 +13,23 @@ import {
   UnauthorizedException,
   UseGuards,
 } from '@nestjs/common';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiBody,
+} from '@nestjs/swagger';
 
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('login')
+  @ApiOperation({ summary: 'Login with username and password' })
+  @ApiBody({ type: loginDto })
+  @ApiResponse({ status: 200, description: 'Login successful, returns user and sets tokens in cookies' })
+  @ApiResponse({ status: 401, description: 'Invalid credentials' })
   async login(
     @Res({ passthrough: true }) response: Response,
     @Body() dto: loginDto,
@@ -40,6 +51,9 @@ export class AuthController {
   }
 
   @Get('refresh')
+  @ApiOperation({ summary: 'Refresh access token using refresh token from cookies' })
+  @ApiResponse({ status: 200, description: 'Token refreshed successfully' })
+  @ApiResponse({ status: 401, description: 'No refresh token in cookies' })
   async refresh(
     @Req() request: Request,
     @Res({ passthrough: true }) response: Response,
@@ -71,6 +85,9 @@ export class AuthController {
 
   @Get('me')
   @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: 'Get current authenticated user' })
+  @ApiResponse({ status: 200, description: 'Current user info' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
   me(@Req() req: Request & { user: JwtPayload }) {
     return this.authService.me(req.user.sub);
   }
