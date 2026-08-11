@@ -4,7 +4,7 @@ const Footer = () => {
       return <footer className="border-t border-slate-200 bg-slate-900 px-6 py-14 text-slate-300">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div>
-            <h2 className="text-2xl font-bold text-white">الجامعة التكنلوجية</h2>
+            <h2 className="text-2xl font-bold text-white">الجامعة التكنولوجية</h2>
             <p className="mt-2 text-sm text-slate-400">لتقديم تعليم متميز و بحوث علمية تقنية مبتكرة لتلبية تغيرات العصر المعرفية و البحثية و المحتمعية</p>
           </div>
           
