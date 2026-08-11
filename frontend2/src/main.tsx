@@ -15,6 +15,8 @@ import AdminsLoginPage from './pages/adminForm'
 import CurriculumsPage from './components/teacherDashboar/curriculumsPage'
 import NewCurriculum from './components/teacherDashboar/newCurriculum'
 import AdminStudents from './components/teacherDashboar/adminStudents'
+import AdminsResultsEntery from './components/teacherDashboar/adminsResultsEntery'
+import AdminsResults from './components/teacherDashboar/adminsResults'
 
 const router = createBrowserRouter([
 	{
@@ -50,8 +52,8 @@ const router = createBrowserRouter([
 			{ path: "/dashboard/admins/curriculums", element: <CurriculumsPage /> },
 			{ path: "/dashboard/admins/curriculums-edit", element: <NewCurriculum /> },
 			{ path: "/dashboard/admins/students", element: <AdminStudents /> },
-			{ path: "/dashboard/admins/results", element: <AdminStudents /> },
-			{ path: "/dashboard/admins/results-entery", element: <AdminStudents /> },
+			{ path: "/dashboard/admins/results", element:  <AdminsResults /> },
+			{ path: "/dashboard/admins/results-entery", element: <AdminsResultsEntery /> },
 			 
 		]
 	},
