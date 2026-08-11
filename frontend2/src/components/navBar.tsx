@@ -6,6 +6,7 @@ import { Link } from "react-router";
 type NavSubItem = {
   name: string;
   path: string;
+  externalLink?: string;
 };
 
 type NavItem = {
@@ -70,7 +71,7 @@ const NavigationBar: React.FC = () => {
     {
       label: t("research_centers"),
       items: [
-        { name: t("center_1"), path: "https://csfs-strategy-future-sciences-231892899012.us-west1.run.app/" },
+        { name: t("center_1"), path: "", externalLink: "https://csfs-strategy-future-sciences-231892899012.us-west1.run.app/" },
         { name: t("center_2"), path: "" },
         { name: t("center_3"), path: "" },
       ],
@@ -176,14 +177,15 @@ const NavigationBar: React.FC = () => {
           <div className="h-20 px-6">
             <ul className="flex h-full flex-wrap items-center gap-y-3 w-full">
               {NAV_ITEMS[openIndex].items.map((subItem, index) => (
-                <li key={subItem.name}>
-                  <Link
+                <li key={subItem.name}>{
+			subItem.externalLink ? <a href={subItem.externalLink} className={`text-sm  h-90 text-[#d67528ff] border-l px-15 py-8 ${index === 0 ? "border-r" : ""} border-[#d67528ff]  transition-colors hover:text-slate-50 hover:bg-[#d67528ff]`} target="_blank">{subItem.name}</a>
+                  : <Link
                     to={{ pathname: subItem.path }}
                     className={`text-sm  h-90 text-[#d67528ff] border-l px-15 py-8 ${index === 0 ? "border-r" : ""} border-[#d67528ff]  transition-colors hover:text-slate-50 hover:bg-[#d67528ff]`}
                   >
                     {subItem.name}
                   </Link>
-                </li>
+		}</li>
               ))}
             </ul>
           </div>
