@@ -3,9 +3,10 @@ import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 
 const BACKGROUND_IMAGES: string[] = [
-  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&q=80",
+  "/president-office.jpeg",
+  "/president-interview.jpeg",
+  "/uni-building.jpeg",
+  "/uni-lab.jpeg",
 ];
 
 const FADE_INTERVAL_MS = 5000;
