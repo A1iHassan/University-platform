@@ -7,6 +7,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import type { CreateResultDto } from './dto/create-result.dto';
+import type { UpdateResultDto } from './dto/update-result.dto';
 import type { Db } from 'src/db/db.module';
 import { DRIZZLE } from 'src/db/db.module';
 import { results } from 'src/db/schema';
@@ -52,6 +53,37 @@ export class ResultsService {
       if (error instanceof NotFoundException) throw error;
       this.logger.error('error fetching a result: ', error);
       throw new InternalServerErrorException('cant fetch result');
+    }
+  }
+
+  async update(id: number, updateResultDto: UpdateResultDto) {
+    try {
+      const [updated] = await this.db
+        .update(results)
+        .set({ ...updateResultDto, updated_at: new Date() })
+        .where(eq(results.id, id))
+        .returning();
+      if (!updated) throw new NotFoundException('result not found');
+      return { status: 'success', data: updated };
+    } catch (error) {
+      if (error instanceof NotFoundException) throw error;
+      this.logger.error('error updating a result: ', error);
+      throw new InternalServerErrorException('cant update result');
+    }
+  }
+
+  async remove(id: number) {
+    try {
+      const [deleted] = await this.db
+        .delete(results)
+        .where(eq(results.id, id))
+        .returning();
+      if (!deleted) throw new NotFoundException('result not found');
+      return { status: 'success', data: deleted };
+    } catch (error) {
+      if (error instanceof NotFoundException) throw error;
+      this.logger.error('error deleting a result: ', error);
+      throw new InternalServerErrorException('cant delete result');
     }
   }
 }

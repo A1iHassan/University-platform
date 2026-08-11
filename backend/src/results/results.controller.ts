@@ -1,5 +1,15 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import { CreateResultDto } from './dto/create-result.dto';
+import { UpdateResultDto } from './dto/update-result.dto';
 import { ResultsService } from './results.service';
 
 @Controller('results')
@@ -19,5 +29,18 @@ export class ResultsController {
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.resultsService.findOne(id);
+  }
+
+  @Patch(':id')
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateResultDto: UpdateResultDto,
+  ) {
+    return this.resultsService.update(id, updateResultDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.resultsService.remove(id);
   }
 }
