@@ -50,7 +50,7 @@ const primaryTabsData: PrimaryTabItem[] = [
     icon: FolderIcon,
     secondaryTabs: [
       { id: 'tab-2-1', path: "/dashboard/admins/students", label: 'الطلاب المسجلون', description: 'Active project repositories and media files', icon: FolderIcon },
-      { id: 'tab-2-2', path: "", label: 'Tab 2.2', description: 'Document archives and exported reports', icon: DocumentTextIcon },
+      { id: 'tab-2-2', path: "/dashboard/admins/new-students", label: 'طلبات التسجيل', description: 'Document archives and exported reports', icon: DocumentTextIcon },
       { id: 'tab-2-3', path: "", label: 'Tab 2.3', description: 'Shared asset library and template files', icon: Square3Stack3DIcon },
     ]
   },

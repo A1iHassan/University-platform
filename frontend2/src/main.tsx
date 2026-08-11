@@ -20,6 +20,7 @@ import AdminsResults from './components/teacherDashboar/adminsResults'
 import DeanStudentPage from './pages/deanStudentPage'
 import ScienceSecretariatPage from './pages/scienceSecretariatPage'
 import Admission from './pages/admissionsPage'
+import AdminApplications from './components/teacherDashboar/applications'
 
 const router = createBrowserRouter([
 	{
@@ -58,7 +59,8 @@ const router = createBrowserRouter([
 			{ path: "/dashboard/admins/students", element: <AdminStudents /> },
 			{ path: "/dashboard/admins/results", element:  <AdminsResults /> },
 			{ path: "/dashboard/admins/results-entery", element: <AdminsResultsEntery /> },
-			 
+			{ path: "/dashboard/admins/new-students", element: <AdminApplications /> },
+			  
 		]
 	},
 ])
