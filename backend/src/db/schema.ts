@@ -50,7 +50,7 @@ export const results = pgTable('results', {
   curriculum_id: serial()
     .notNull()
     .references(() => curriculums.id),
-  grade: text().notNull(),
+  grade: text(),
   letter_grade: letter_grade_enum(),
   created_at: timestamp({ withTimezone: true }).defaultNow(),
   updated_at: timestamp({ withTimezone: true }).defaultNow(),
