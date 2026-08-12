@@ -20,7 +20,7 @@ interface ApplicationPayload {
   blood_type?: string;
   school_degree?: string;
   certificate?: string;
-  national_id?: number;
+  national_id?: string;
   year?: string;
 }
 
@@ -73,7 +73,7 @@ const Admission = () => {
     if (formData.blood_type) payload.blood_type = formData.blood_type;
     if (formData.school_degree.trim()) payload.school_degree = formData.school_degree.trim();
     if (formData.certificate.trim()) payload.certificate = formData.certificate.trim();
-    if (formData.national_id) payload.national_id = parseInt(formData.national_id, 10);
+    if (formData.national_id) payload.national_id = formData.national_id.trim();
     if (formData.year.trim()) payload.year = formData.year.trim();
 
     setStatus("loading");
