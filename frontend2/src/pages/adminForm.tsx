@@ -12,7 +12,7 @@ const AdminsLoginPage = () => {
 		</h1>
 		<div
 		  className="flex flex-col justify-center items-center gap-4 border border-slate-50 shadow-lg p-16 rounded-2xl min-w-1/4">
-		  <label className="text-2xl font-light font-almarai self-start" htmlFor="name">الاسم</label>
+		  <label className="text-2xl font-light font-almarai self-start" htmlFor="name">اسم الموظف</label>
 		  <span className="text-sm font-light text-slate-600 self-start">أدخل الاسم أو الرقم الجامعي</span>
 		  <input className="outline-none w-full rounded-lg border-2 border-solid border-slate-200 focus:border-slate-400 p-2" type="text" name="name" id="name" />
 		  <label className="text-2xl font-light self-start" htmlFor="password">كلمة المرور</label>

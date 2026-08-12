@@ -60,7 +60,7 @@ const StatuteByNumbersSection = () => {
 
           <div className="text-right">
             <h2 className="text-2xl font-bold text-slate-700 sm:text-4xl">
-              الهيكلية الداخلية
+              الإحصائيات
             </h2>
             <span className="mt-2 block h-1 w-14 rounded-full bg-[#d67528] sm:mr-0 sm:ml-auto" />
             <p className="mt-3 max-w-md text-sm leading-7 text-slate-700/70">
