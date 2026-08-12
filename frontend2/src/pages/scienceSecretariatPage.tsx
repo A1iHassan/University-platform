@@ -70,9 +70,11 @@ const ScienceSecretariatPage = () => {
         .ssp-font { font-family: 'Tajawal', 'Segoe UI', sans-serif; }
       `}</style>
 
-      <div className="ssp-font mx-auto max-w-4xl px-6 py-14 sm:py-20">
+      <div className="ssp-font mx-auto w-2/3 px-6 py-14 sm:py-20">
 
         {/* Title */}
+	<div className="flex justify-between items-center">
+	<aside className="">
         <h1 className="text-3xl font-extrabold leading-tight text-slate-700 sm:text-4xl">
           أمانة الشؤون العلمية
         </h1>
@@ -81,6 +83,19 @@ const ScienceSecretariatPage = () => {
           إدارة كافة العملية األكاديمية بالجامعة، وفقاً للنظم األساسية
           إلدارة الجامعة لعام 2024م.
         </p>
+	</aside>
+	<aside className="ml-15 flex flex-col gap-4 items-center">
+	  <img src="/secretariat.jpeg" alt="photo" width={256} className="ring-4 ring-slate-200 rounded" />
+	  <p className="flex flex-col gap-2 items-center">
+	    <span className="">
+	      د.ناجى عبيد
+	    </span>
+	    <span className="">
+	      امين الشؤون العلمية
+	    </span>
+	  </p>
+	</aside>
+	</div>
 
         {/* Vision & Mission */}
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
