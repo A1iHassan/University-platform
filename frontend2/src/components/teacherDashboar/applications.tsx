@@ -48,7 +48,7 @@ const AdminApplications = () => {
     setFetchStatus("loading");
     setErrorMessage("");
     try {
-      const response = await fetch("http://localhost:3000/applications");
+      const response = await fetch("https://demo.roarisolutions.com/api/applications");
       if (!response.ok) {
         throw new Error(`فشل تحميل الطلبات (رمز الحالة ${response.status})`);
       }
@@ -80,7 +80,7 @@ const AdminApplications = () => {
     });
 
     try {
-      const response = await fetch(`http://localhost:3000/applications/${id}`, {
+      const response = await fetch(`https://demo.roarisolutions.com/api/applications/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

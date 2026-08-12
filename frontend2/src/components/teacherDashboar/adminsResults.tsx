@@ -43,19 +43,19 @@ const AdminsResults = () => {
 
         const [resultsResponse, studentsResponse, curriculumsResponse] =
           await Promise.all([
-            fetch("http://localhost:3000/results", {
+            fetch("https://demo.roarisolutions.com/api/results", {
               method: "GET",
               headers: {
                 Accept: "application/json",
               },
             }),
-            fetch("http://localhost:3000/students", {
+            fetch("https://demo.roarisolutions.com/api/students", {
               method: "GET",
               headers: {
                 Accept: "application/json",
               },
             }),
-            fetch("http://localhost:3000/curriculums", {
+            fetch("https://demo.roarisolutions.com/api/curriculums", {
               method: "GET",
               headers: {
                 Accept: "application/json",

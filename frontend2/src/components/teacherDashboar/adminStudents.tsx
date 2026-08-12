@@ -19,7 +19,7 @@ const AdminStudents = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await fetch("http://localhost:3000/students", {
+        const response = await fetch("https://demo.roarisolutions.com/api/students", {
           method: "GET",
           headers: {
             Accept: "application/json",

@@ -80,7 +80,7 @@ const Admission = () => {
     setErrorMessage("");
 
     try {
-      const response = await fetch("http://localhost:3000/applications", {
+      const response = await fetch("https://demo.roarisolutions.com/api/applications", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

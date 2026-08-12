@@ -21,7 +21,7 @@ const NewCurriculum = () => {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:3000/curriculums", {
+      const response = await fetch("https://demo.roarisolutions.com/api/curriculums", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

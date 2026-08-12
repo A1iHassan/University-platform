@@ -49,13 +49,13 @@ const AdminsResultsEntery = () => {
         setError("");
 
         const [studentsResponse, curriculumsResponse] = await Promise.all([
-          fetch("http://localhost:3000/students", {
+          fetch("https://demo.roarisolutions.com/api/students", {
             method: "GET",
             headers: {
               Accept: "application/json",
             },
           }),
-          fetch("http://localhost:3000/curriculums", {
+          fetch("https://demo.roarisolutions.com/api/curriculums", {
             method: "GET",
             headers: {
               Accept: "application/json",
@@ -101,7 +101,7 @@ const AdminsResultsEntery = () => {
     try {
       setSaving(true);
 
-      const response = await fetch("http://localhost:3000/results", {
+      const response = await fetch("https://demo.roarisolutions.com/api/results", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

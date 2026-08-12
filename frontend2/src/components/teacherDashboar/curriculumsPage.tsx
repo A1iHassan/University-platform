@@ -26,7 +26,7 @@ const CurriculumsPage = () => {
   useEffect(() => {
     const fetchCurriculums = async () => {
       try {
-        const res = await fetch("http://localhost:3000/curriculums");
+        const res = await fetch("https://demo.roarisolutions.com/api/curriculums");
 
         if (res.status !== 200) {
           throw new Error("Failed to fetch curriculums");
