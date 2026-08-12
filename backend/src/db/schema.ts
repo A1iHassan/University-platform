@@ -74,7 +74,7 @@ export const students = pgTable('students', {
   blood_type: blood_type_enum(),
   school_degree: text(),
   certificate: text(),
-  national_id: integer(),
+  national_id: text(),
   year: text(),
   created_at: timestamp({ withTimezone: true }).defaultNow(),
   updated_at: timestamp({ withTimezone: true })
@@ -89,7 +89,7 @@ export const applications = pgTable('applications', {
   blood_type: blood_type_enum(),
   school_degree: text(),
   certificate: text(),
-  national_id: integer(),
+  national_id: text(),
   year: text(),
   status: status_enum().default('pending'),
   created_at: timestamp({ withTimezone: true }).defaultNow(),
