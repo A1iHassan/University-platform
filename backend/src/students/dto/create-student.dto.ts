@@ -23,8 +23,8 @@ export class CreateStudentDto {
   certificate?: string;
 
   @IsOptional()
-  @IsInt()
-  national_id?: number;
+  @IsString()
+  national_id?: string;
 
   @IsOptional()
   @IsString()
