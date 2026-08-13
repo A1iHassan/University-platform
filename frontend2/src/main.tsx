@@ -21,6 +21,7 @@ import DeanStudentPage from './pages/deanStudentPage'
 import ScienceSecretariatPage from './pages/scienceSecretariatPage'
 import Admission from './pages/admissionsPage'
 import AdminApplications from './components/teacherDashboar/applications'
+import CrewPage from './pages/crewPage'
 
 const router = createBrowserRouter([
 	{
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
 			{ path: "/applications/student-apply", element: <LoginPage /> },
 			{ path: "/applications/admins-apply", element: <AdminsLoginPage /> },
 			{ path: "/news", element: <></> },
+			{ path: "/crew", element: <CrewPage /> },
 			{ path: "/deanship/students", element: <DeanStudentPage /> },
 			{ path: "/secretariat/science", element: <ScienceSecretariatPage /> },
 			{ path: "/new-admissions", element: <Admission /> },

@@ -25,6 +25,7 @@ const NavigationBar: React.FC = () => {
       items: [
         { name: t("معلومات التواصل"), path: "/" },
         { name: t("معرض الصور و الفيديوهات"), path: "" },
+        { name: "الهيكل الإداري", path: "/crew" },
         { name: t("إحصائيات الجامعة"), path: "" },
         { name: t("الشراكات و الاتفاقيات"), path: "" },
         { name: t("مجالس و لجان الجامعة"), path: "" },
